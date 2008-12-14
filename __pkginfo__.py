@@ -34,7 +34,7 @@ classifiers =  ['Development Status :: 4 - Beta',
                 'Programming Language :: Python',
                 'Topic :: Software Development :: Libraries :: Python Modules',
                 ]
-download_url = '%s-%s.egg' % (modname, version,)
+# download_url = '%s-%s.egg' % (modname, version,)
 
 py_modules = [modname]
 

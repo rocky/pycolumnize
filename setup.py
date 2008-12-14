@@ -5,7 +5,7 @@ distutils setup (setup.py)
 This gets a bit of package info from __pkginfo__.py file
 """
 # Get the required package information 
-from __pkginfo__ import author, author_email, classifiers, download_url, \
+from __pkginfo__ import author, author_email, classifiers, \
     py_modules, modname, \
     short_desc, version, web
 
@@ -23,7 +23,6 @@ setup(
       author_email       = author_email,
       classifiers        = classifiers,
       description        = short_desc,
-      download_url       = download_url,
       # license            = license,
       long_description   = long_description,
       name               = modname,
