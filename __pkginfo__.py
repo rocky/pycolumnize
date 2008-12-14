@@ -19,8 +19,6 @@ modname = 'columnize'
 numversion = (0, 1, 0)
 version = '.'.join([str(num) for num in numversion])
 
-copyright = '''Copyright (C) 2008 Rocky Bernstein <rocky@gnu.org>.'''
-
 short_desc = 'Format a list of strings into a single compact string'
 
 author = "Rocky Bernstein"
@@ -39,3 +37,5 @@ classifiers =  ['Development Status :: 4 - Beta',
 download_url = '%s-%s.egg' % (modname, version,)
 
 py_modules = [modname]
+
+web = 'http://code.google.com/p/pycolumnize'
