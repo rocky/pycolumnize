@@ -5,7 +5,8 @@ array of strings.
 Adapted from the routine of the same name inside cmd.py"""
 import types
 
-def columnize(array, displaywidth=80, colsep = '  '):
+def columnize(array, displaywidth=80, colsep = '  ',
+              arrange_vertically = True):
     """Return a list of strings as a compact set of columns.
 
     For example, for a line width of 4 characters:
@@ -33,6 +34,11 @@ def columnize(array, displaywidth=80, colsep = '  '):
     elif size == 1:
         return '%s\n' % str(array[0])
 
+    if arrange_vertically:
+        linearize_index = lambda row, col, nrows: nrows*col + row # [col, row]
+    else: # Go horizontal
+        linearize_index = lambda row, col, nrows: nrows*row + col # [row, col]
+
     # Try every row count from 1 upwards
     for nrows in range(1, len(array)):
         ncols = (size+nrows-1) // nrows
@@ -42,7 +48,7 @@ def columnize(array, displaywidth=80, colsep = '  '):
             # get max column width for this column
             colwidth = 0
             for row in range(nrows):
-                i = row + nrows*col # [rows, cols]
+                i = linearize_index(row, col, nrows)
                 if i >= size:
                     break
                 x = array[i]
@@ -69,11 +75,12 @@ def columnize(array, displaywidth=80, colsep = '  '):
     for row in range(nrows):
         texts = []
         for col in range(ncols):
-            i = row + nrows*col
+            i = linearize_index(row, col, nrows)
             if i >= size:
                 x = ""
             else:
                 x = array[i]
+                pass
             texts.append(x)
         while texts and not texts[-1]:
             del texts[-1]
@@ -92,24 +99,18 @@ if __name__=='__main__':
   print columnize(["a", '2', "c"], 10, ', ')
   print columnize(["oneitem"])
   print columnize(("one", "two", "three",))
-  print columnize([
-                  "one", "two", "three",
-                  "4ne", "5wo", "6hree",
-                  "7ne", "8wo", "9hree",
-                  "10e", "11o", "12ree",
-                  "13e", "14o", "15ree",
-                  "16e", "17o", "18ree",
-                  "19e", "20o", "21ree",
-                  "22e", "23o", "24ree",
-                  "25e", "26o", "27ree",
-                  "28e", "29o", "30ree",
-                  "31e", "32o", "33ree",
-                  "34e", "35o", "36ree",
-                  "37e", "38o", "39ree",
-                  "40e", "41o", "42ree",
-                  "43e", "44o", "45ree",
-                  "46e", "47o", "48ree",
-                  "one", "two", "three"])
+  data = (
+    "one",       "two",         "three",
+    "for",       "five",        "six",
+    "seven",     "eight",       "nine",
+    "ten",       "eleven",      "twelve",
+    "thirteen",  "fourteen",    "fifteen",
+    "sixteen",   "seventeen",   "eightteen",
+    "nineteen",  "twenty",      "twentyone",
+    "twentytwo", "twentythree", "twentyfour",
+    "twentyfive","twentysix",   "twentyseven",)
+  print columnize(data)
+  print columnize(data, arrange_vertically = False)
 
   try:
       print columnize(5)
