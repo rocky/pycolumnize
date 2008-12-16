@@ -5,8 +5,7 @@ array of strings.
 Adapted from the routine of the same name inside cmd.py"""
 import types
 
-def columnize(array, displaywidth=80, colsep = '  ',
-              arrange_vertically = True):
+def columnize(array, displaywidth=80, colsep = '  '):
     """Return a list of strings as a compact set of columns.
 
     For example, for a line width of 4 characters:
@@ -105,7 +104,7 @@ if __name__=='__main__':
         "twentytwo", "twentythree", "twentyfour",
         "twentyfive","twentysix",   "twentyseven",)
     print columnize(data)
-    print columnize(data, arrange_vertically = False)
+    print columnize(data)
     
     try:
         print columnize(5)
