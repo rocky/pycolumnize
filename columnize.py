@@ -5,12 +5,16 @@ array of strings.
 Adapted from the routine of the same name inside cmd.py"""
 import types
 
-def columnize(array, displaywidth=80, colsep = '  '):
-    """Return a list of strings as a compact set of columns.
+def columnize(array, displaywidth=80, colsep = '  ', arrange_vertical=True):
+    """Return a list of strings as a compact set of columns arranged 
+    horizontally or vertically.
 
-    For example, for a line width of 4 characters:
+    For example, for a line width of 4 characters (arranged vertically):
         ['1', '2,', '3', '4'] => '1  3\n2  4\n'
-    
+   
+    or arranged horizontally:
+        ['1', '2,', '3', '4'] => '1  2\n3  4\n'
+        
     Each column is only as wide as necessary.  By default, columns are
     separated by two spaces - one was not legible enough. Set "colsep"
     to adjust the string separate columns. Set `displaywidth' to set
@@ -31,17 +35,23 @@ def columnize(array, displaywidth=80, colsep = '  '):
         return "<empty>\n"
     elif size == 1:
         return '%s\n' % str(array[0])
+    
+    if arrange_vertical:
+        array_index = lambda nrows, row, col: nrows*col + row
+    else:
+        array_index = lambda nrows, row, col: nrows*row + col
+        pass
 
     # Try every row count from 1 upwards
+    ncols = size
     for nrows in range(1, len(array)):
-        ncols = (size+nrows-1) // nrows
         colwidths = []
         totwidth = -len(colsep)
         for col in range(ncols):
-            # get max column width for this column
+            # get max column width for column "col"
             colwidth = 0
             for row in range(nrows):
-                i = row + nrows*col # [rows, cols]
+                i = array_index(nrows, row, col)
                 if i >= size:
                     break
                 x = array[i]
@@ -50,6 +60,7 @@ def columnize(array, displaywidth=80, colsep = '  '):
             colwidths.append(colwidth)
             totwidth += colwidth + len(colsep)
             if totwidth > displaywidth:
+                ncols = col
                 break
             pass
         if totwidth <= displaywidth:
@@ -69,7 +80,7 @@ def columnize(array, displaywidth=80, colsep = '  '):
     for row in range(nrows):
         texts = []
         for col in range(ncols):
-            i = row + nrows*col
+            i = array_index(nrows, row, col)
             if i >= size:
                 x = ""
             else:
@@ -88,11 +99,11 @@ def columnize(array, displaywidth=80, colsep = '  '):
 # Demo it
 if __name__=='__main__':
   #
-    print columnize([])
+#   print columnize([])
     print columnize(['1', '2', '3', '4'], 4)
     print columnize(["a", '2', "c"], 10, ', ')
-    print columnize(["oneitem"])
-    print columnize(("one", "two", "three",))
+#   print columnize(["oneitem"])
+#   print columnize(("one", "two", "three",))
     data = (
         "one",       "two",         "three",
         "for",       "five",        "six",
@@ -104,7 +115,7 @@ if __name__=='__main__':
         "twentytwo", "twentythree", "twentyfour",
         "twentyfive","twentysix",   "twentyseven",)
     print columnize(data)
-    print columnize(data)
+    print columnize(data, arrange_vertical=False)
     
     try:
         print columnize(5)
