@@ -39,7 +39,7 @@ class TestColumize(unittest.TestCase):
 "seven       eight      nine         ten        eleven       twelve    \n" +
 "thirteen    fourteen   fifteen      sixteen    seventeen    eightteen \n" +
 "nineteen    twenty     twentyone    twentytwo  twentythree  twentyfour\n" +
-"twentyfive  twentysix  twentyseven\n\n", columnize(data, arrange_vertical=False))
+"twentyfive  twentysix  twentyseven\n", columnize(data, arrange_vertical=False))
 
         self.assertEqual(
 "one    five   nine    thirteen  seventeen  twentyone    twentyfive \n" +

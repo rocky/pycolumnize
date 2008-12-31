@@ -82,28 +82,37 @@ def columnize(array, displaywidth=80, colsep = '  ', arrange_vertical=True):
         for col in range(ncols):
             i = array_index(nrows, row, col)
             if i >= size:
-                x = ""
+                if arrange_vertical:
+                    x = ""
+                else:
+                    break
             else:
                 x = array[i]
                 pass
             texts.append(x)
+            pass
         while texts and not texts[-1]:
             del texts[-1]
-        for col in range(len(texts)):
-            texts[col] = texts[col].ljust(colwidths[col])
             pass
-        s += "%s\n" % str(colsep.join(texts))
+        if len(texts) > 0:
+            for col in range(len(texts)):
+                texts[col] = texts[col].ljust(colwidths[col])
+                pass
+            s += "%s\n" % str(colsep.join(texts))
+            pass
         pass
+    pass
     return s
 
 # Demo it
 if __name__=='__main__':
   #
-#   print columnize([])
+    print columnize([])
     print columnize(['1', '2', '3', '4'], 4)
+    print columnize(['1', '2', '3', '4'], 4, arrange_vertical=False)
     print columnize(["a", '2', "c"], 10, ', ')
-#   print columnize(["oneitem"])
-#   print columnize(("one", "two", "three",))
+    print columnize(["oneitem"])
+    print columnize(("one", "two", "three",))
     data = (
         "one",       "two",         "three",
         "for",       "five",        "six",
