@@ -18,7 +18,12 @@ def columnize(array, displaywidth=80, colsep = '  ', arrange_vertical=True):
     Each column is only as wide as necessary.  By default, columns are
     separated by two spaces - one was not legible enough. Set "colsep"
     to adjust the string separate columns. Set `displaywidth' to set
-    the line width. """
+    the line width. 
+
+    Normally, consecutive items go down from the top to bottom from
+    the left-most column to the right-most. If "arrange_vertical" is
+    set false, consecutive items will go across, left to right, top to
+    bottom."""
     if not isinstance(array, list) and not isinstance(array, tuple): 
         raise TypeError, (
             'array needs to be an instance of a list or a tuple')
