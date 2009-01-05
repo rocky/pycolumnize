@@ -43,38 +43,54 @@ def columnize(array, displaywidth=80, colsep = '  ', arrange_vertical=True):
     
     if arrange_vertical:
         array_index = lambda nrows, row, col: nrows*col + row
-    else:
-        array_index = lambda nrows, row, col: nrows*row + col
-        pass
-
-    # Try every row count from 1 upwards
-    ncols = size
-    for nrows in range(1, len(array)):
-        colwidths = []
-        totwidth = -len(colsep)
-        for col in range(ncols):
-            # get max column width for column "col"
-            colwidth = 0
-            for row in range(nrows):
-                i = array_index(nrows, row, col)
-                if i >= size:
+        # Try every row count from 1 upwards
+        for nrows in range(1, size):
+            ncols = (size+nrows-1) // nrows
+            colwidths = []
+            totwidth = -len(colsep)
+            for col in range(ncols):
+                # get max column width for this column
+                colwidth = 0
+                for row in range(nrows):
+                    i = array_index(nrows, row, col)
+                    if i >= size: break
+                    x = array[i]
+                    colwidth = max(colwidth, len(x))
+                    pass
+                colwidths.append(colwidth)
+                totwidth += colwidth + len(colsep)
+                if totwidth > displaywidth: 
                     break
-                x = array[i]
-                colwidth = max(colwidth, len(x))
                 pass
-            colwidths.append(colwidth)
-            totwidth += colwidth + len(colsep)
-            if totwidth > displaywidth:
-                ncols = col
+            if totwidth <= displaywidth: 
                 break
             pass
-        if totwidth <= displaywidth:
-            break
         pass
     else:
-        nrows = len(array)
-        ncols = 1
-        colwidths = [0]
+        array_index = lambda nrows, row, col: nrows*row + col
+        # Try every column count from size downwards
+        for ncols in range(size, 1, -1):
+            nrows = (size+ncols-1) // ncols
+            colwidths = []
+            totwidth  = -len(colsep)
+            for col in range(ncols):
+                # get max column width for this column
+                colwidth  = 0
+                for row in range(nrows):
+                    i = array_index(nrows, row, col)
+                    if i >= size: 
+                        break
+                    x = array[i]
+                    colwidth = max(colwidth, len(x))
+                    pass
+                colwidths.append(colwidth)
+                totwidth += colwidth + len(colsep)
+                if totwidth >= displaywidth: 
+                    break
+                pass
+            if totwidth <= displaywidth and i >= size:
+                break
+            pass
         pass
 
     # The smallest number of rows computed and the
@@ -87,34 +103,27 @@ def columnize(array, displaywidth=80, colsep = '  ', arrange_vertical=True):
         for col in range(ncols):
             i = array_index(nrows, row, col)
             if i >= size:
-                if arrange_vertical:
-                    x = ""
-                else:
-                    break
-            else:
-                x = array[i]
-                pass
+                if arrange_vertical: x = ""
+                else: break
+            else: x = array[i]
             texts.append(x)
-            pass
         while texts and not texts[-1]:
             del texts[-1]
+        for col in range(len(texts)):
+            texts[col] = texts[col].ljust(colwidths[col])
             pass
-        if len(texts) > 0:
-            for col in range(len(texts)):
-                texts[col] = texts[col].ljust(colwidths[col])
-                pass
-            s += "%s\n" % str(colsep.join(texts))
-            pass
+        s += "%s\n" % str(colsep.join(texts))
         pass
-    pass
     return s
 
 # Demo it
 if __name__=='__main__':
-  #
+    for t in ((4, 7), (4, 4,), (100, 80)): 
+        data = [str(i) for i in range(t[0])]
+        print columnize(data, displaywidth=t[1], arrange_vertical=False)
+        print columnize(data, displaywidth=t[1])
+        pass
     print columnize([])
-    print columnize(['1', '2', '3', '4'], 4)
-    print columnize(['1', '2', '3', '4'], 4, arrange_vertical=False)
     print columnize(["a", '2', "c"], 10, ', ')
     print columnize(["oneitem"])
     print columnize(("one", "two", "three",))
