@@ -1,4 +1,9 @@
+0.3.0 01-05-09
+
+- 0.2.0 had bad bugs - don't use. 
+  Allow specifying right justification as well as left justification
+
 0.2.0 12-31-08
 
-Add ability to run columns vertically 
+- Add ability to run columns vertically 
 

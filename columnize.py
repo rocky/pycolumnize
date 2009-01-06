@@ -5,7 +5,8 @@ array of strings.
 Adapted from the routine of the same name inside cmd.py"""
 import types
 
-def columnize(array, displaywidth=80, colsep = '  ', arrange_vertical=True):
+def columnize(array, displaywidth=80, colsep = '  ', 
+              arrange_vertical=True, ljust=True):
     """Return a list of strings as a compact set of columns arranged 
     horizontally or vertically.
 
@@ -65,63 +66,107 @@ def columnize(array, displaywidth=80, colsep = '  ', arrange_vertical=True):
             if totwidth <= displaywidth: 
                 break
             pass
-        pass
-    else:
-        array_index = lambda nrows, row, col: nrows*row + col
-        # Try every column count from size downwards
-        for ncols in range(size, 1, -1):
-            nrows = (size+ncols-1) // ncols
-            colwidths = []
-            totwidth  = -len(colsep)
+        # The smallest number of rows computed and the
+        # max widths for each column has been obtained.
+        # Now we just have to format each of the
+        # rows.
+        s = ''
+        for row in range(nrows):
+            texts = []
             for col in range(ncols):
-                # get max column width for this column
-                colwidth  = 0
-                for row in range(nrows):
-                    i = array_index(nrows, row, col)
-                    if i >= size: 
-                        break
+                i = row + nrows*col
+                if i >= size:
+                    x = ""
+                else:
                     x = array[i]
-                    colwidth = max(colwidth, len(x))
+                texts.append(x)
+            while texts and not texts[-1]:
+                del texts[-1]
+            for col in range(len(texts)):
+                if ljust:
+                    texts[col] = texts[col].ljust(colwidths[col])
+                else:
+                    texts[col] = texts[col].rjust(colwidths[col])
                     pass
-                colwidths.append(colwidth)
-                totwidth += colwidth + len(colsep)
-                if totwidth >= displaywidth: 
+                pass
+            s += "%s\n" % str(colsep.join(texts))
+            pass
+        return s
+    else:
+        array_index = lambda nrows, row, col: ncols*(row-1) + col
+        # Try every column count from size downwards
+        prev_colwidths = []
+        colwidths = []
+        for ncols in range(size, 0, -1):
+            # Try every row count from 1 upwards
+            min_rows = (size+ncols-1) // ncols
+            for nrows in range(min_rows, size):
+                rounded_size = nrows * ncols
+                colwidths = []
+                totwidth  = -len(colsep)
+                for col in range(ncols):
+                    # get max column width for this column
+                    colwidth  = 0
+                    for row in range(1, nrows+1):
+                        i = array_index(nrows, row, col)
+                        if i >= rounded_size: break
+                        elif i < size:
+                            x = array[i]
+                            colwidth = max(colwidth, len(x))
+                            pass
+                        pass
+                    colwidths.append(colwidth)
+                    totwidth += colwidth + len(colsep)
+                    if totwidth >= displaywidth: 
+                        break
+                    pass
+                if totwidth <= displaywidth and i >= rounded_size-1:
+                    # Found the right nrows and ncols
+                    nrows  = row
+                    break
+                elif totwidth >= displaywidth:
+                    # Need to reduce ncols
                     break
                 pass
-            if totwidth <= displaywidth and i >= size:
+            if totwidth <= displaywidth and i >= rounded_size-1:
                 break
             pass
-        pass
-
-    # The smallest number of rows computed and the
-    # max widths for each column has been obtained.
-    # Now we just have to format each of the
-    # rows.
-    s = ''
-    for row in range(nrows):
-        texts = []
-        for col in range(ncols):
-            i = array_index(nrows, row, col)
-            if i >= size:
-                if arrange_vertical: x = ""
-                else: break
-            else: x = array[i]
-            texts.append(x)
-        while texts and not texts[-1]:
-            del texts[-1]
-        for col in range(len(texts)):
-            texts[col] = texts[col].ljust(colwidths[col])
+        # The smallest number of rows computed and the
+        # max widths for each column has been obtained.
+        # Now we just have to format each of the
+        # rows.
+        s = ''
+        for row in range(1, nrows+1):
+            texts = []
+            for col in range(ncols):
+                i = array_index(nrows, row, col)
+                if i >= size:
+                    break
+                else: x = array[i]
+                texts.append(x)
+                pass
+            for col in range(len(texts)):
+                if ljust:
+                    texts[col] = texts[col].ljust(colwidths[col])
+                else:
+                    texts[col] = texts[col].rjust(colwidths[col])
+                    pass
+                pass
+            s += "%s\n" % str(colsep.join(texts))
             pass
-        s += "%s\n" % str(colsep.join(texts))
-        pass
-    return s
+        return s
+    pass
 
 # Demo it
 if __name__=='__main__':
-    for t in ((4, 7), (4, 4,), (100, 80)): 
+    for t in ((4, 4,), (4, 7), (100, 80)): 
+        width = t[1]
         data = [str(i) for i in range(t[0])]
-        print columnize(data, displaywidth=t[1], arrange_vertical=False)
-        print columnize(data, displaywidth=t[1])
+        for t2 in ((False, 'horizontal',), (True, 'vertical',)):
+            print "Width: %d, direction: %s" % (width, t2[1])
+            print columnize(data, displaywidth=width, 
+                            arrange_vertical=t2[0])
+            pass
         pass
     print columnize([])
     print columnize(["a", '2', "c"], 10, ', ')
@@ -139,6 +184,12 @@ if __name__=='__main__':
         "twentyfive","twentysix",   "twentyseven",)
     print columnize(data)
     print columnize(data, arrange_vertical=False)
+    data = [str(i) for i in range(55)]
+    print columnize(data, displaywidth=39, ljust=False, 
+                    colsep = ', ')
+    print columnize(data, displaywidth=39, ljust=False, 
+                    arrange_vertical=False,
+                    colsep = ', ')
     
     try:
         print columnize(5)

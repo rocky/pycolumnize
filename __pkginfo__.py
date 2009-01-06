@@ -1,4 +1,4 @@
-# Copyright (C) 2008 Rocky Bernstein <rocky@gnu.org>
+# Copyright (C) 2008, 2009 Rocky Bernstein <rocky@gnu.org>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 
 modname = 'columnize'
 
-numversion = (0, 2, 0)
+numversion = (0, 3, 0)
 version = '.'.join([str(num) for num in numversion])
 
 short_desc = 'Format a list of strings into a single compact string'
