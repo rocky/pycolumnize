@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- Python -*-
-"Unit test for Tracer"
+"Unit test for Columnize"
 import operator, os, sys, unittest
 
-top_builddir = os.path.join(os.path.dirname(__file__), '..')
+top_builddir = os.path.join(os.path.dirname(__file__), os.path.pardir)
 if top_builddir[-1] != os.path.sep:
     top_builddir += os.path.sep
 sys.path.insert(0, top_builddir)
