@@ -16,7 +16,7 @@
 
 modname = 'columnize'
 
-numversion = (0, 3, 1)
+numversion = (0, 3, 2)
 version = '.'.join([str(num) for num in numversion])
 
 short_desc = 'Format a list of strings into a single compact string'
