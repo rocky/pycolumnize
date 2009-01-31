@@ -90,7 +90,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
                     texts[col] = texts[col].rjust(colwidths[col])
                     pass
                 pass
-            s += "%s\n" % str(colsep.join(texts))
+            s += "%s%s\n" % (lineprefix, str(colsep.join(texts)))
             pass
         return s
     else:
@@ -188,6 +188,8 @@ if __name__=='__main__':
     data = [str(i) for i in range(55)]
     print columnize(data, displaywidth=39, ljust=False, 
                     colsep = ', ')
+    print columnize(data, displaywidth=39, ljust=False, 
+                    colsep = ', ', lineprefix='    ')
     print columnize(data, displaywidth=39, ljust=False, 
                     arrange_vertical=False,
                     colsep = ', ')
