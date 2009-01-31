@@ -6,7 +6,7 @@ Adapted from the routine of the same name inside cmd.py"""
 import types
 
 def columnize(array, displaywidth=80, colsep = '  ', 
-              arrange_vertical=True, ljust=True):
+              arrange_vertical=True, ljust=True, lineprefix=''):
     """Return a list of strings as a compact set of columns arranged 
     horizontally or vertically.
 
@@ -41,7 +41,8 @@ def columnize(array, displaywidth=80, colsep = '  ',
         return "<empty>\n"
     elif size == 1:
         return '%s\n' % str(array[0])
-    
+
+    displaywidth = max(4, displaywidth - len(lineprefix))
     if arrange_vertical:
         array_index = lambda nrows, row, col: nrows*col + row
         # Try every row count from 1 upwards
@@ -152,7 +153,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
                     texts[col] = texts[col].rjust(colwidths[col])
                     pass
                 pass
-            s += "%s\n" % str(colsep.join(texts))
+            s += "%s%s\n" % (lineprefix, str(colsep.join(texts)))
             pass
         return s
     pass
@@ -190,6 +191,10 @@ if __name__=='__main__':
     print columnize(data, displaywidth=39, ljust=False, 
                     arrange_vertical=False,
                     colsep = ', ')
+
+    print columnize(data, displaywidth=39, ljust=False, 
+                    arrange_vertical=False,
+                    colsep = ', ', lineprefix='    ')
     
     try:
         print columnize(5)
