@@ -29,11 +29,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
         raise TypeError, (
             'array needs to be an instance of a list or a tuple')
 
-    nonstrings = [i for i in range(len(array))
-                    if not isinstance(array[i], str)]
-    if nonstrings:
-        raise TypeError, ("array[i] not a string for i in %s" %
-                          ", ".join(map(str, nonstrings)))
+    array = [str(i) for i in array]
 
     # Some degenerate cases
     size = len(array)
@@ -204,10 +200,4 @@ if __name__=='__main__':
         print e
         pass
     
-    try:
-        # We don't str the array, probably in the future we should
-        print columnize(range(4))
-    except TypeError, e:
-        print e
-        pass
-    pass
+    print columnize(range(4))

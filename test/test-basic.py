@@ -98,27 +98,13 @@ class TestColumize(unittest.TestCase):
 "two    six    ten     fourteen  eightteen  twentytwo    twentysix  \n" +
 "three  seven  eleven  fifteen   nineteen   twentythree  twentyseven\n" +
 "for    eight  twelve  sixteen   twenty     twentyfour \n", columnize(data))
-        return
 
+        self.assertEqual('0  1  2  3\n', columnize(range(4)))
+        return
 
     def test_errors(self):
         """Test various error conditions."""
-        # Don't know why assertRaises fails...
-        # self.assertRaises(TypeError, tracer.add_hook(5))
-        try:
-            print columnize(5)
-            self.assertFalse(True, 'reject input - not array')
-        except TypeError, e:
-            self.assertTrue(True, 'reject input - not array')
-            pass
-        
-        try:
-            # We don't str the array, probably in the future we should
-            print columnize(range(4))
-            self.assertFalse(True, 'reject input - array items not string')
-        except TypeError, e:
-            self.assertTrue(True, 'reject input - array item not string')
-            pass
+        self.assertRaises(TypeError, columnize, 5, 'reject input - not array')
         return
     pass
 
