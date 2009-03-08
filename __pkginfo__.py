@@ -19,7 +19,7 @@ modname = 'columnize'
 numversion = (0, 3, 2)
 version = '.'.join([str(num) for num in numversion])
 
-short_desc = 'Format a list of strings into a single compact string'
+short_desc = 'Format a simple (i.e. not nested) list into aligned columns.'
 
 author = "Rocky Bernstein"
 author_email = "rocky@gnu.org"
