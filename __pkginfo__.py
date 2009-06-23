@@ -16,7 +16,7 @@
 
 modname = 'columnize'
 
-numversion = (0, 3, 2)
+numversion = (0, 3, 3)
 version = '.'.join([str(num) for num in numversion])
 
 short_desc = 'Format a simple (i.e. not nested) list into aligned columns.'
