@@ -92,7 +92,6 @@ def columnize(array, displaywidth=80, colsep = '  ',
     else:
         array_index = lambda nrows, row, col: ncols*(row-1) + col
         # Try every column count from size downwards
-        prev_colwidths = []
         colwidths = []
         for ncols in range(size, 0, -1):
             # Try every row count from 1 upwards
