@@ -3,7 +3,6 @@
 array of strings.
 
 Adapted from the routine of the same name inside cmd.py"""
-import types
 
 def columnize(array, displaywidth=80, colsep = '  ', 
               arrange_vertical=True, ljust=True, lineprefix=''):
