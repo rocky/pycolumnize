@@ -20,11 +20,11 @@ setup(
       classifiers        = classifiers,
       description        = short_desc,
       license            = license,
-      py_modules         = py_modules,
       long_description   = long_description,
       name               = modname,
       test_suite         = 'nose.collector',
       url                = web,
       version            = VERSION,
+      py_modules         = py_modules,
       zip_safe           = zip_safe
       )

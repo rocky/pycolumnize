@@ -24,9 +24,6 @@ import os.path
 execfile(os.path.join(os.path.dirname(__file__), 'VERSION.py'))
 web = 'http://code.google.com/p/pycolumnize'
 
-# download_url = '%s-%s.egg' % (modname, version,)
-
-
 web = 'http://code.google.com/p/pycolumnize'
 # tracebacks in zip files are funky and not debuggable
 zip_safe = False 
