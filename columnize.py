@@ -25,8 +25,8 @@ def columnize(array, displaywidth=80, colsep = '  ',
     set false, consecutive items will go across, left to right, top to
     bottom."""
     if not isinstance(array, list) and not isinstance(array, tuple): 
-        raise TypeError, (
-            'array needs to be an instance of a list or a tuple')
+        raise TypeError((
+            'array needs to be an instance of a list or a tuple'))
 
     array = [str(i) for i in array]
 
@@ -158,15 +158,15 @@ if __name__=='__main__':
         width = t[1]
         data = [str(i) for i in range(t[0])]
         for t2 in ((False, 'horizontal',), (True, 'vertical',)):
-            print "Width: %d, direction: %s" % (width, t2[1])
-            print columnize(data, displaywidth=width, 
-                            arrange_vertical=t2[0])
+            print("Width: %d, direction: %s" % (width, t2[1]))
+            print(columnize(data, displaywidth=width, 
+                            arrange_vertical=t2[0]))
             pass
         pass
-    print columnize([])
-    print columnize(["a", '2', "c"], 10, ', ')
-    print columnize(["oneitem"])
-    print columnize(("one", "two", "three",))
+    print(columnize([]))
+    print(columnize(["a", '2', "c"], 10, ', '))
+    print(columnize(["oneitem"]))
+    print(columnize(("one", "two", "three",)))
     data = (
         "one",       "two",         "three",
         "for",       "five",        "six",
@@ -177,25 +177,25 @@ if __name__=='__main__':
         "nineteen",  "twenty",      "twentyone",
         "twentytwo", "twentythree", "twentyfour",
         "twentyfive","twentysix",   "twentyseven",)
-    print columnize(data)
-    print columnize(data, arrange_vertical=False)
+    print(columnize(data))
+    print(columnize(data, arrange_vertical=False))
     data = [str(i) for i in range(55)]
-    print columnize(data, displaywidth=39, ljust=False, 
-                    colsep = ', ')
-    print columnize(data, displaywidth=39, ljust=False, 
-                    colsep = ', ', lineprefix='    ')
-    print columnize(data, displaywidth=39, ljust=False, 
+    print(columnize(data, displaywidth=39, ljust=False, 
+                    colsep = ', '))
+    print(columnize(data, displaywidth=39, ljust=False, 
+                    colsep = ', ', lineprefix='    '))
+    print(columnize(data, displaywidth=39, ljust=False, 
                     arrange_vertical=False,
-                    colsep = ', ')
+                    colsep = ', '))
 
-    print columnize(data, displaywidth=39, ljust=False, 
+    print(columnize(data, displaywidth=39, ljust=False, 
                     arrange_vertical=False,
-                    colsep = ', ', lineprefix='    ')
+                    colsep = ', ', lineprefix='    '))
     
     try:
-        print columnize(5)
-    except TypeError, e:
-        print e
+        print(columnize(5))
+    except TypeError as e:
+        print(e)
         pass
     
-    print columnize(range(4))
+    print(columnize(list(range(4))))

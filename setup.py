@@ -26,5 +26,6 @@ setup(
       url                = web,
       version            = VERSION,
       py_modules         = py_modules,
+      setup_requires     = ['nose>=1.0'],
       zip_safe           = zip_safe
       )

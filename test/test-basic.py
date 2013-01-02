@@ -99,7 +99,7 @@ class TestColumize(unittest.TestCase):
 "three  seven  eleven  fifteen   nineteen   twentythree  twentyseven\n" +
 "for    eight  twelve  sixteen   twenty     twentyfour \n", columnize(data))
 
-        self.assertEqual('0  1  2  3\n', columnize(range(4)))
+        self.assertEqual('0  1  2  3\n', columnize(list(range(4))))
         return
 
     def test_errors(self):

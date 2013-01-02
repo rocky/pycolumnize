@@ -1,6 +1,6 @@
 """packaging information"""
 # Things that change more often go here.
-copyright   = '''Copyright (C) 2008, 2009, 2010 Rocky Bernstein <rocky@gnu.org>.'''
+copyright   = '''Copyright (C) 2008-2010, 2013 Rocky Bernstein <rocky@gnu.org>.'''
 classifiers =  ['Development Status :: 4 - Beta',
                 'Intended Audience :: Developers',
                 'License :: OSI Approved :: Python Software Foundation License',
@@ -21,7 +21,7 @@ py_modules = [modname]
 
 # VERSION.py sets variable VERSION.
 import os.path
-execfile(os.path.join(os.path.dirname(__file__), 'VERSION.py'))
+exec(compile(open(os.path.join(os.path.dirname(__file__), 'VERSION.py')).read(), os.path.join(os.path.dirname(__file__), 'VERSION.py'), 'exec'))
 web = 'http://code.google.com/p/pycolumnize'
 
 web = 'http://code.google.com/p/pycolumnize'

@@ -1,5 +1,7 @@
-/*~
+*.bak
+/*.egg-info
 /*.pyc
+/*~
 /build
 /dist
-/*.egg-info
+__pycache__
