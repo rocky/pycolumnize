@@ -1,4 +1,7 @@
-0.3.4 10-28-10 - 
+0.3.4 01-??-13 - 
+- Make 3k tolerant
+
+0.3.3 10-28-10 - 
 - Work on packaging
 - Remove pyflakes warnings
 - Correct licensing information
