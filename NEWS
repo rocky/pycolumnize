@@ -1,5 +1,6 @@
-0.3.4 01-??-13 - 
-- Make 3k tolerant
+0.3.4 01-03-13 
+- Make 3k tolerant. This means it no longer works for versions less
+  than Python 2.6. For use columnize 0.3.3.
 
 0.3.3 10-28-10 - 
 - Work on packaging
