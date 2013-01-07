@@ -16,6 +16,14 @@ clean:
 dist: 
 	$(PYTHON) ./setup.py sdist bdist
 
+#: Create source tarball
+sdist: 
+	$(PYTHON) ./setup.py sdist
+
+#: Create binary egg distribution
+bdist_egg: 
+	$(PYTHON) ./setup.py bdist_egg
+
 # It is too much work to figure out how to add a new command to distutils
 # to do the following. I'm sure distutils will someday get there.
 DISTCLEAN_FILES = build dist *.egg-info *.pyc *.so py*.py

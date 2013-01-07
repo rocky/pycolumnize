@@ -1,0 +1,7 @@
+include Makefile
+include NEWS
+include LICENSE
+include __pkginfo__.py
+include VERSION.py
+include test test-basic.py
+include test Makefile
