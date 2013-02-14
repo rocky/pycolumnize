@@ -1,5 +1,12 @@
 # Compatibility for us old-timers.
+
+# Note: This makefile include remake-style target comments. 
+# These comments before the targets start with #:
+# remake --tasks to shows the targets and the comments
+
 PHONY=check clean dist distclean test
+GIT2CL ?= git2cl
+PYTHON ?= python
 
 #: the default target - same as running "check"
 all: check
