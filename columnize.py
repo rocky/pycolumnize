@@ -89,7 +89,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
             pass
         return s
     else:
-        array_index = lambda nrows, row, col: ncols*(row-1) + col
+        array_index = lambda ncols, row, col: ncols*(row-1) + col
         # Try every column count from size downwards
         colwidths = []
         for ncols in range(size, 0, -1):
@@ -103,7 +103,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
                     # get max column width for this column
                     colwidth  = 0
                     for row in range(1, nrows+1):
-                        i = array_index(nrows, row, col)
+                        i = array_index(ncols, row, col)
                         if i >= rounded_size: break
                         elif i < size:
                             x = array[i]
@@ -134,7 +134,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
         for row in range(1, nrows+1):
             texts = []
             for col in range(ncols):
-                i = array_index(nrows, row, col)
+                i = array_index(ncols, row, col)
                 if i >= size:
                     break
                 else: x = array[i]
