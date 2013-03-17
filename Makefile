@@ -7,6 +7,7 @@
 PHONY=check clean dist distclean test
 GIT2CL ?= git2cl
 PYTHON ?= python
+PYTHON3 ?= python3
 
 #: the default target - same as running "check"
 all: check
@@ -14,6 +15,7 @@ all: check
 #: Run all tests
 check: 
 	$(PYTHON) ./setup.py nosetests
+	$(PYTHON3) ./setup.py nosetests
 
 #: Clean up temporary files
 clean: 
@@ -46,8 +48,11 @@ install:
 #: Same as 'check' target
 test: check
 
+rmChangeLog: 
+	rm ChangeLog || true
+
 #: Create a ChangeLog from git via git log and git2cl
-ChangeLog:
+ChangeLog: rmChangeLog
 	git log --pretty --numstat --summary | $(GIT2CL) >$@
 
 .PHONY: $(PHONY)

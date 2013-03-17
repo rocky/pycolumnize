@@ -4,8 +4,48 @@ array of strings.
 
 Adapted from the routine of the same name inside cmd.py"""
 
+import os
+
+
+def computed_displaywidth():
+    '''Figure out a reasonable default with. Use os.environ['COLUMNS'] if possible,
+    and failing that use 80.
+    '''
+    width=80
+    if 'COLUMNS' in os.environ:
+        try: 
+            width = int(os.environ['COLUMNS'])
+        except:
+            pass
+        pass
+    return width
+    
+default_opts = {
+    'arrange_array'    : False,  # Check if file has changed since last time
+    'arrange_vertical' : True,  
+    'array_prefix'     : '',
+    'array_suffix'     : '',
+    'colfmt'           : None,
+    'colsep'           : '  ',
+    'displaywidth'     : computed_displaywidth,
+    'lineprefix'       : '',
+    'linesuffix'       : "\n",
+    'ljust'            : 'auto',
+    'term_adjust'      : False
+    }
+
+def get_option(key, options):
+    global default_opts
+    if key not in options:
+        return default_opts.get(key)
+    else:
+        return options[key]
+    return None # Not reached
+
+
 def columnize(array, displaywidth=80, colsep = '  ', 
-              arrange_vertical=True, ljust=True, lineprefix=''):
+              arrange_vertical=True, ljust=True, lineprefix='',
+              opts={}):
     """Return a list of strings as a compact set of columns arranged 
     horizontally or vertically.
 
@@ -28,6 +68,21 @@ def columnize(array, displaywidth=80, colsep = '  ',
         raise TypeError((
             'array needs to be an instance of a list or a tuple'))
 
+    o = {}
+    if len(opts.keys()) > 0:
+        for key in default_opts.keys():
+            o[key] = get_option(key, opts)
+            pass
+        pass
+    else:
+        o = default_opts.copy()
+        o['displaywidth']     = displaywidth
+        o['colsep']           = colsep
+        o['arrange_vertical'] = arrange_vertical
+        o['ljust']            = ljust
+        o['lineprefix']       = lineprefix
+        pass
+        
     array = [str(i) for i in array]
 
     # Some degenerate cases
@@ -35,16 +90,23 @@ def columnize(array, displaywidth=80, colsep = '  ',
     if 0 == size: 
         return "<empty>\n"
     elif size == 1:
-        return '%s\n' % str(array[0])
+        return '%s%s%s\n' % (o['array_prefix'], str(array[0]),
+                             o['array_suffix'])
 
-    displaywidth = max(4, displaywidth - len(lineprefix))
-    if arrange_vertical:
+    if o['displaywidth'] - len(o['lineprefix']) < 4:
+        o['displaywidth'] = len(o['lineprefix']) + 4
+    else:
+        o['displaywidth'] -= len(o['lineprefix'])
+        pass
+
+    o['displaywidth'] = max(4, o['displaywidth'] - len(o['lineprefix']))
+    if o['arrange_vertical']:
         array_index = lambda nrows, row, col: nrows*col + row
         # Try every row count from 1 upwards
         for nrows in range(1, size):
             ncols = (size+nrows-1) // nrows
             colwidths = []
-            totwidth = -len(colsep)
+            totwidth = -len(o['colsep'])
             for col in range(ncols):
                 # get max column width for this column
                 colwidth = 0
@@ -55,11 +117,11 @@ def columnize(array, displaywidth=80, colsep = '  ',
                     colwidth = max(colwidth, len(x))
                     pass
                 colwidths.append(colwidth)
-                totwidth += colwidth + len(colsep)
-                if totwidth > displaywidth: 
+                totwidth += colwidth + len(o['colsep'])
+                if totwidth > o['displaywidth']: 
                     break
                 pass
-            if totwidth <= displaywidth: 
+            if totwidth <= o['displaywidth']: 
                 break
             pass
         # The smallest number of rows computed and the
@@ -79,13 +141,14 @@ def columnize(array, displaywidth=80, colsep = '  ',
             while texts and not texts[-1]:
                 del texts[-1]
             for col in range(len(texts)):
-                if ljust:
+                if o['ljust']:
                     texts[col] = texts[col].ljust(colwidths[col])
                 else:
                     texts[col] = texts[col].rjust(colwidths[col])
                     pass
                 pass
-            s += "%s%s\n" % (lineprefix, str(colsep.join(texts)))
+            s += "%s%s%s" % (o['lineprefix'], str(o['colsep'].join(texts)),
+                             o['linesuffix'])
             pass
         return s
     else:
@@ -98,7 +161,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
             for nrows in range(min_rows, size):
                 rounded_size = nrows * ncols
                 colwidths = []
-                totwidth  = -len(colsep)
+                totwidth  = -len(o['colsep'])
                 for col in range(ncols):
                     # get max column width for this column
                     colwidth  = 0
@@ -111,19 +174,19 @@ def columnize(array, displaywidth=80, colsep = '  ',
                             pass
                         pass
                     colwidths.append(colwidth)
-                    totwidth += colwidth + len(colsep)
-                    if totwidth >= displaywidth: 
+                    totwidth += colwidth + len(o['colsep'])
+                    if totwidth >= o['displaywidth']: 
                         break
                     pass
-                if totwidth <= displaywidth and i >= rounded_size-1:
+                if totwidth <= o['displaywidth'] and i >= rounded_size-1:
                     # Found the right nrows and ncols
                     nrows  = row
                     break
-                elif totwidth >= displaywidth:
+                elif totwidth >= o['displaywidth']:
                     # Need to reduce ncols
                     break
                 pass
-            if totwidth <= displaywidth and i >= rounded_size-1:
+            if totwidth <= o['displaywidth'] and i >= rounded_size-1:
                 break
             pass
         # The smallest number of rows computed and the
@@ -141,13 +204,14 @@ def columnize(array, displaywidth=80, colsep = '  ',
                 texts.append(x)
                 pass
             for col in range(len(texts)):
-                if ljust:
+                if o['ljust']:
                     texts[col] = texts[col].ljust(colwidths[col])
                 else:
                     texts[col] = texts[col].rjust(colwidths[col])
                     pass
                 pass
-            s += "%s%s\n" % (lineprefix, str(colsep.join(texts)))
+            s += "%s%s%s" % (o['lineprefix'], str(o['colsep'].join(texts)),
+                             o['linesuffix'])
             pass
         return s
     pass
@@ -157,10 +221,12 @@ if __name__=='__main__':
     for t in ((4, 4,), (4, 7), (100, 80)): 
         width = t[1]
         data = [str(i) for i in range(t[0])]
+        options = {}
         for t2 in ((False, 'horizontal',), (True, 'vertical',)):
             print("Width: %d, direction: %s" % (width, t2[1]))
-            print(columnize(data, displaywidth=width, 
-                            arrange_vertical=t2[0]))
+            options['displaywidth'] = width
+            options['arrange_vertical'] = t2[0]
+            print(columnize(data, opts=options))
             pass
         pass
     print(columnize([]))
@@ -183,7 +249,7 @@ if __name__=='__main__':
     print(columnize(data, displaywidth=39, ljust=False, 
                     colsep = ', '))
     print(columnize(data, displaywidth=39, ljust=False, 
-                    colsep = ', ', lineprefix='    '))
+                    colsep=', ', lineprefix='    '))
     print(columnize(data, displaywidth=39, ljust=False, 
                     arrange_vertical=False,
                     colsep = ', '))
