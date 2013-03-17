@@ -30,7 +30,7 @@ default_opts = {
     'displaywidth'     : computed_displaywidth,
     'lineprefix'       : '',
     'linesuffix'       : "\n",
-    'ljust'            : 'auto',
+    'ljust'            : None,
     'term_adjust'      : False
     }
 
@@ -73,7 +73,15 @@ def columnize(array, displaywidth=80, colsep = '  ',
         for key in default_opts.keys():
             o[key] = get_option(key, opts)
             pass
-        pass
+        if o['arrange_array']:
+            o['array_prefix'] = '['
+            o['lineprefix']   = ' '
+            o['linesuffix']   = ",\n"
+            o['array_suffix'] = "]\n"
+            o['colsep']       = ', '
+            o['arrange_vertical'] = False
+            pass
+
     else:
         o = default_opts.copy()
         o['displaywidth']     = displaywidth
@@ -82,8 +90,16 @@ def columnize(array, displaywidth=80, colsep = '  ',
         o['ljust']            = ljust
         o['lineprefix']       = lineprefix
         pass
-        
-    array = [str(i) for i in array]
+
+    # if o['ljust'] is None:
+    #     o['ljust'] = !(list.all?{|datum| datum.kind_of?(Numeric)})
+    #     pass
+
+    if o['colfmt']:
+        array = [(o['colfmt'] % i) for i in array]
+    else:
+        array = [str(i) for i in array]
+        pass
 
     # Some degenerate cases
     size = len(array)
@@ -194,6 +210,11 @@ def columnize(array, displaywidth=80, colsep = '  ',
         # Now we just have to format each of the
         # rows.
         s = ''
+        if len(o['array_prefix']) != 0:
+            prefix = o['array_prefix']
+        else:
+            prefix = o['lineprefix'] 
+            pass
         for row in range(1, nrows+1):
             texts = []
             for col in range(ncols):
@@ -210,9 +231,11 @@ def columnize(array, displaywidth=80, colsep = '  ',
                     texts[col] = texts[col].rjust(colwidths[col])
                     pass
                 pass
-            s += "%s%s%s" % (o['lineprefix'], str(o['colsep'].join(texts)),
+            s += "%s%s%s" % (prefix, str(o['colsep'].join(texts)),
                              o['linesuffix'])
+            prefix = o['lineprefix']
             pass
+        s += o['array_suffix']
         return s
     pass
 
@@ -246,9 +269,8 @@ if __name__=='__main__':
     print(columnize(data))
     print(columnize(data, arrange_vertical=False))
     data = [str(i) for i in range(55)]
-    print(columnize(data, displaywidth=39, ljust=False, 
-                    colsep = ', '))
-    print(columnize(data, displaywidth=39, ljust=False, 
+    print(columnize(data, opts={'displaywidth':39, 'arrange_array':True}))
+    print(columnize(data, displaywidth=39, ljust=False,
                     colsep=', ', lineprefix='    '))
     print(columnize(data, displaywidth=39, ljust=False, 
                     arrange_vertical=False,
