@@ -1,6 +1,26 @@
+0.3.5 
+
+- Reinstate ability to run on older Pythons. In particular Python
+  2.4.6 and 2.5.6 now. I suppose other version in between work too.
+
+- Add opts hash to bundle the growing options old and new:
+  * arrange_array
+  * arrange_vertical
+  * arrange_horizontal
+  * array_prefix
+  * array_suffix
+  * colsep
+  * colfmt
+  * displaywidth
+  * lineprefix
+  * linesuffix
+  * ljust
+
+- Fix some bugs
+
 0.3.4 01-03-13 
 - Make 3k tolerant. This means it no longer works for versions less
-  than Python 2.6. For use columnize 0.3.3.
+  than Python 2.6.
 
 0.3.3 10-28-10 - 
 - Work on packaging
