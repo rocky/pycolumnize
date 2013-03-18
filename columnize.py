@@ -279,11 +279,13 @@ if __name__=='__main__':
     print(columnize(data, displaywidth=39, ljust=False, 
                     arrange_vertical=False,
                     colsep = ', ', lineprefix='    '))
-    
+
+    import sys
     try:
         print(columnize(5))
-    except TypeError as e:
-        print(e)
+    except TypeError:
+        _, err, _ = sys.exc_info()
+        print(err)
         pass
     
     print(columnize(list(range(4))))
