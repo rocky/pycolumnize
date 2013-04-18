@@ -1,0 +1,202 @@
+2013-03-17  rocky <rocky@gnu.org>
+
+	* .gitignore, NEWS, test/.cvsignore: Various administrivia
+
+2013-03-17  rocky <rocky@gnu.org>
+
+	* VERSION.py: Bump version
+
+2013-03-17  rocky <rocky@gnu.org>
+
+	* MANIFEST.in, columnize.py: Python 2.5-2.7 and 3.2 compatibility
+
+2013-03-17  rocky <rocky@gnu.org>
+
+	* columnize.py: Add arrange_array option
+
+2013-03-17  rocky <rocky@gnu.org>
+
+	* Makefile, columnize.py, test/test-basic.py: Start an options hash.
+	Add more options like linesuffix.
+
+2013-02-22  rocky <rocky@gnu.org>
+
+	* columnize.py: Remove relying on outer lexically scoped "ncols"
+
+2013-02-14  rocky <rocky@gnu.org>
+
+	* Makefile: Set reasonable default values for PYTHON and GIT2CL
+
+2013-01-06  rocky <rocky@gnu.org>
+
+	* ChangeLog, MANIFEST.in, Makefile: Fixes to make source tarball
+	work.
+
+2013-01-03  rocky <rocky@gnu.org>
+
+	* NEWS: Get ready for release 0.3.4
+
+2013-01-03  rocky <rocky@gnu.com>
+
+	* Makefile, NEWS, VERSION.py: Make 3k tolerant. Add "remake" target
+	comments to Makefile and use git2cl to make ChangeLog. Bump version.
+
+2013-01-02  rocky <rocky@gnu.com>
+
+	* svn2cl_usermap: Administriva
+
+2013-01-02  rocky <rocky.bernstein@gmail.com>
+
+	* .gitignore, __pkginfo__.py, columnize.py, setup.cfg, setup.py,
+	test/test-basic.py: Port to 3k
+
+2010-10-29  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* __pkginfo__.py, setup.py: VERSION variable was incorrect.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@33
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2010-10-28  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* NEWS, VERSION.py, __pkginfo__.py, setup.py, svn2cl_usermap: Get
+	ready for release git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@32
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2010-06-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py: Remove pyflake warning git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@31
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2010-06-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* __pkginfo__.py, columnize.py: Remove reference to GPL3.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@30
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-06-23  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* LICENSE, __pkginfo__.py: Add PSF2 license.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@29
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-03-08  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* NEWS, __pkginfo__.py: Get ready fo 0.3.2 release git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@27
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py, test/test-basic.py: Relax restriction that array has
+	to be string. Now is just something we can call str() on each of the
+	elements on.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@26
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py, test/test-basic.py: Missed align-vertical case.
+	Really should DRY code.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@25
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* __pkginfo__.py: Bump version git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@24
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py, test/test-basic.py: Add an optional initial line
+	prefix string git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@23
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-10  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* __pkginfo__.py: Ooops forgot version number update git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@21
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-10  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* NEWS: get ready for 0.3.1 release git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@19
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-10  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* setup.cfg, test/test-basic.py: Some small typos.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@18
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-06  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* NEWS, __pkginfo__.py, columnize.py, test/test-basic.py: Fix those
+	bad formatting bugs. Add ability to right-justify text in columns.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@16
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-05  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py: arrange_vertical is buggy. Start to redo. Not
+	completely correct - more later.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@15
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-01  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py: Doc typo git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@13
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2009-01-01  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* NEWS, README.txt: Update for 0.2.0 release.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@11
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py, test/Makefile, test/test-basic.py: Remove duplicate
+	trainling \n from horizontal formatting.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@10
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* __pkginfo__.py, columnize.py, test/test-basic.py: Allow horizontal
+	arrangement as well as vertical arrangement git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@9
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-16  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py: Revert trying to arrange vertically - it's a little
+	more complicated. This time, for sure\! git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@8
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-16  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py: Revert trying to arrange vertically - it's a little
+	more compilcated git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@7
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* columnize.py, test/test-basic.py: Start a horizontally-arranged
+	version. Buggy.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@6
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* .gitignore, test/.gitignore: Administrivia - add .gitignore.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@5
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-14  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* __pkginfo__.py, setup.py: Nuke download URL. Was messing up pypi.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@4
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-14  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* __pkginfo__.py: Add web address now that we have one.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@3
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-14  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* Makefile, README.txt, __init__.py, __pkginfo__.py, columnize.py,
+	setup.cfg, setup.py, test/.cvsignore, test/test-basic.py: Promote
+	Python's columnize function inside cmd.py to a module. Some small
+	adjustments have been made.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@2
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-14  (no author) <(no author)@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* Initial directory structure.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@1
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
