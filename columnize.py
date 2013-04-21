@@ -13,21 +13,21 @@ def computed_displaywidth():
     '''
     width=80
     if 'COLUMNS' in os.environ:
-        try: 
+        try:
             width = int(os.environ['COLUMNS'])
         except:
             pass
         pass
     return width
-    
+
 default_opts = {
     'arrange_array'    : False,  # Check if file has changed since last time
-    'arrange_vertical' : True,  
+    'arrange_vertical' : True,
     'array_prefix'     : '',
     'array_suffix'     : '',
     'colfmt'           : None,
     'colsep'           : '  ',
-    'displaywidth'     : computed_displaywidth,
+    'displaywidth'     : computed_displaywidth(),
     'lineprefix'       : '',
     'linesuffix'       : "\n",
     'ljust'            : None,
@@ -43,28 +43,28 @@ def get_option(key, options):
     return None # Not reached
 
 
-def columnize(array, displaywidth=80, colsep = '  ', 
+def columnize(array, displaywidth=80, colsep = '  ',
               arrange_vertical=True, ljust=True, lineprefix='',
               opts={}):
-    """Return a list of strings as a compact set of columns arranged 
+    """Return a list of strings as a compact set of columns arranged
     horizontally or vertically.
 
     For example, for a line width of 4 characters (arranged vertically):
         ['1', '2,', '3', '4'] => '1  3\n2  4\n'
-   
+
     or arranged horizontally:
         ['1', '2,', '3', '4'] => '1  2\n3  4\n'
-        
+
     Each column is only as wide as necessary.  By default, columns are
     separated by two spaces - one was not legible enough. Set "colsep"
     to adjust the string separate columns. Set `displaywidth' to set
-    the line width. 
+    the line width.
 
     Normally, consecutive items go down from the top to bottom from
     the left-most column to the right-most. If "arrange_vertical" is
     set false, consecutive items will go across, left to right, top to
     bottom."""
-    if not isinstance(array, list) and not isinstance(array, tuple): 
+    if not isinstance(array, list) and not isinstance(array, tuple):
         raise TypeError((
             'array needs to be an instance of a list or a tuple'))
 
@@ -103,7 +103,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
 
     # Some degenerate cases
     size = len(array)
-    if 0 == size: 
+    if 0 == size:
         return "<empty>\n"
     elif size == 1:
         return '%s%s%s\n' % (o['array_prefix'], str(array[0]),
@@ -134,10 +134,10 @@ def columnize(array, displaywidth=80, colsep = '  ',
                     pass
                 colwidths.append(colwidth)
                 totwidth += colwidth + len(o['colsep'])
-                if totwidth > o['displaywidth']: 
+                if totwidth > o['displaywidth']:
                     break
                 pass
-            if totwidth <= o['displaywidth']: 
+            if totwidth <= o['displaywidth']:
                 break
             pass
         # The smallest number of rows computed and the
@@ -191,7 +191,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
                         pass
                     colwidths.append(colwidth)
                     totwidth += colwidth + len(o['colsep'])
-                    if totwidth >= o['displaywidth']: 
+                    if totwidth >= o['displaywidth']:
                         break
                     pass
                 if totwidth <= o['displaywidth'] and i >= rounded_size-1:
@@ -213,7 +213,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
         if len(o['array_prefix']) != 0:
             prefix = o['array_prefix']
         else:
-            prefix = o['lineprefix'] 
+            prefix = o['lineprefix']
             pass
         for row in range(1, nrows+1):
             texts = []
@@ -241,7 +241,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
 
 # Demo it
 if __name__=='__main__':
-    for t in ((4, 4,), (4, 7), (100, 80)): 
+    for t in ((4, 4,), (4, 7), (100, 80)):
         width = t[1]
         data = [str(i) for i in range(t[0])]
         options = {}
@@ -272,11 +272,11 @@ if __name__=='__main__':
     print(columnize(data, opts={'displaywidth':39, 'arrange_array':True}))
     print(columnize(data, displaywidth=39, ljust=False,
                     colsep=', ', lineprefix='    '))
-    print(columnize(data, displaywidth=39, ljust=False, 
+    print(columnize(data, displaywidth=39, ljust=False,
                     arrange_vertical=False,
                     colsep = ', '))
 
-    print(columnize(data, displaywidth=39, ljust=False, 
+    print(columnize(data, displaywidth=39, ljust=False,
                     arrange_vertical=False,
                     colsep = ', ', lineprefix='    '))
 
@@ -287,5 +287,5 @@ if __name__=='__main__':
         _, err, _ = sys.exc_info()
         print(err)
         pass
-    
+
     print(columnize(list(range(4))))
