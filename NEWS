@@ -1,4 +1,8 @@
-0.3.5
+0.3.6 04-22-13
+
+- Fix bugs in arrange_array
+
+0.3.5 04-18-13
 
 - Reinstate ability to run on older Pythons. In particular Python
   2.4.6 and 2.5.6 now. I suppose other version in between work too.
@@ -22,7 +26,7 @@
 - Make 3k tolerant. This means it no longer works for versions less
   than Python 2.6.
 
-0.3.3 10-28-10 -
+0.3.3 10-28-10
 - Work on packaging
 - Remove pyflakes warnings
 - Correct licensing information
@@ -47,4 +51,3 @@
 0.2.0 12-31-08
 
 - Add ability to run columns vertically
-

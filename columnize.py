@@ -174,7 +174,9 @@ def columnize(array, displaywidth=80, colsep = '  ',
         for ncols in range(size, 0, -1):
             # Try every row count from 1 upwards
             min_rows = (size+ncols-1) // ncols
-            for nrows in range(min_rows, size):
+            nrows = min_rows -1
+            while nrows < size:
+                nrows += 1
                 rounded_size = nrows * ncols
                 colwidths = []
                 totwidth  = -len(o['colsep'])
@@ -196,9 +198,11 @@ def columnize(array, displaywidth=80, colsep = '  ',
                     pass
                 if totwidth <= o['displaywidth'] and i >= rounded_size-1:
                     # Found the right nrows and ncols
+                    # print "right nrows and ncols"
                     nrows  = row
                     break
                 elif totwidth >= o['displaywidth']:
+                    # print "reduce ncols", ncols
                     # Need to reduce ncols
                     break
                 pass
@@ -235,12 +239,27 @@ def columnize(array, displaywidth=80, colsep = '  ',
                              o['linesuffix'])
             prefix = o['lineprefix']
             pass
-        s += o['array_suffix']
+        if o['arrange_array']:
+            colsep = o['colsep'].rstrip()
+            colsep_pos = -(len(colsep)+1)
+            if s[colsep_pos:] == colsep + "\n":
+                s = s[:colsep_pos] + o['array_suffix'] + "\n"
+                pass
+            pass
+        else:
+            s += o['array_suffix']
+            pass
         return s
     pass
 
 # Demo it
 if __name__=='__main__':
+    # from trepan.api import debug
+    # debug()
+    print(columnize(range(12),
+                      opts={'displaywidth':6, 'arrange_array':True}))
+    print(columnize(range(12),
+                      opts={'displaywidth':10, 'arrange_array':True}))
     for t in ((4, 4,), (4, 7), (100, 80)):
         width = t[1]
         data = [str(i) for i in range(t[0])]

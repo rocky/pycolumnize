@@ -14,16 +14,16 @@ class TestColumize(unittest.TestCase):
 
     def test_basic(self):
         """Basic sanity and status testing."""
-        self.assertEqual("1, 2, 3\n", 
+        self.assertEqual("1, 2, 3\n",
                          columnize(['1', '2', '3'], 10, ', '))
-        self.assertEqual("1  3\n2  4\n", 
+        self.assertEqual("1  3\n2  4\n",
                          columnize(['1', '2', '3', '4'], 4))
 
-        self.assertEqual("1  3\n2  4\n", 
+        self.assertEqual("1  3\n2  4\n",
                          columnize(['1', '2', '3', '4'], 7))
 
-        self.assertEqual("0  1  2\n3\n", 
-                         columnize(['0', '1', '2', '3'], 7, 
+        self.assertEqual("0  1  2\n3\n",
+                         columnize(['0', '1', '2', '3'], 7,
                                    arrange_vertical=False))
 
         self.assertEqual("<empty>\n", columnize([]))
@@ -31,7 +31,7 @@ class TestColumize(unittest.TestCase):
 
         data = [str(i) for i in range(55)]
         self.assertEqual(
-            "0,  6, 12, 18, 24, 30, 36, 42, 48, 54\n" + 
+            "0,  6, 12, 18, 24, 30, 36, 42, 48, 54\n" +
             "1,  7, 13, 19, 25, 31, 37, 43, 49\n" +
             "2,  8, 14, 20, 26, 32, 38, 44, 50\n" +
             "3,  9, 15, 21, 27, 33, 39, 45, 51\n" +
@@ -66,7 +66,7 @@ class TestColumize(unittest.TestCase):
         self.assertEqual(
             "     0,  1,  2,  3,  4,  5,  6,  7\n" +
             "     8,  9, 10, 11, 12, 13, 14, 15\n" +
-            "    16, 17, 18, 19, 20, 21, 22, 23\n" + 
+            "    16, 17, 18, 19, 20, 21, 22, 23\n" +
             "    24, 25, 26, 27, 28, 29, 30, 31\n" +
             "    32, 33, 34, 35, 36, 37, 38, 39\n" +
             "    40, 41, 42, 43, 44, 45, 46, 47\n" +
@@ -101,6 +101,43 @@ class TestColumize(unittest.TestCase):
 "for    eight  twelve  sixteen   twenty     twentyfour \n", columnize(data))
 
         self.assertEqual('0  1  2  3\n', columnize(list(range(4))))
+
+        self.assertEqual(
+"[ 0,  1,  2,  3,  4,  5,  6,  7,  8,\n"+
+"  9, 10, 11, 12, 13, 14, 15, 16, 17,\n"+
+" 18, 19, 20, 21, 22, 23, 24, 25, 26,\n"+
+" 27, 28, 29, 30, 31, 32, 33, 34, 35,\n"+
+" 36, 37, 38, 39, 40, 41, 42, 43, 44,\n"+
+" 45, 46, 47, 48, 49, 50, 51, 52, 53,\n"+
+" 54]\n\n", columnize(list(range(55)),
+                      opts={'displaywidth':39, 'arrange_array':True}))
+
+        self.assertEqual("""[ 0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+ 10,
+ 11]
+
+""", columnize(list(range(12)),
+                      opts={'displaywidth':6, 'arrange_array':True}))
+
+        self.assertEqual("""[ 0,  1,
+  2,  3,
+  4,  5,
+  6,  7,
+  8,  9,
+ 10, 11]
+
+""", columnize(list(range(12)),
+                      opts={'displaywidth':10, 'arrange_array':True}))
+
         return
 
     def test_errors(self):
