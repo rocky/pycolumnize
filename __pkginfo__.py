@@ -22,11 +22,10 @@ py_modules = [modname]
 # VERSION.py sets variable VERSION.
 import os.path
 exec(compile(open(os.path.join(os.path.dirname(__file__), 'VERSION.py')).read(), os.path.join(os.path.dirname(__file__), 'VERSION.py'), 'exec'))
-web = 'http://code.google.com/p/pycolumnize'
 
-web = 'http://code.google.com/p/pycolumnize'
+web = 'https://github.com/rocky/pycolumnize'
 # tracebacks in zip files are funky and not debuggable
-zip_safe = False 
+zip_safe = False
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
