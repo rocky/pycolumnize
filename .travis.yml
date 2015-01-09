@@ -1,0 +1,12 @@
+language: python
+sudo: false
+python:
+- '2.6'
+- '2.7'
+- '3.4'
+install:
+- pip install -r requirements.txt
+- pip install -r requirements-dev.txt
+- pip install .
+script:
+ - make test

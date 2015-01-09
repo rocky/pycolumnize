@@ -11,7 +11,7 @@ def computed_displaywidth():
     '''Figure out a reasonable default with. Use os.environ['COLUMNS'] if possible,
     and failing that use 80.
     '''
-    width=80
+    width = 80
     if 'COLUMNS' in os.environ:
         try:
             width = int(os.environ['COLUMNS'])
@@ -34,13 +34,14 @@ default_opts = {
     'term_adjust'      : False
     }
 
+
 def get_option(key, options):
     global default_opts
     if key not in options:
         return default_opts.get(key)
     else:
         return options[key]
-    return None # Not reached
+    return None  # Not reached
 
 
 def columnize(array, displaywidth=80, colsep = '  ',
