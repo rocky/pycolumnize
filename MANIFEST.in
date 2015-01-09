@@ -1,4 +1,6 @@
 include Makefile
+include README.txt
+include README.md
 include NEWS
 include LICENSE
 include __pkginfo__.py
