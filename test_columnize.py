@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- Python -*-
 "Unit test for Columnize"
-import operator, os, sys, unittest
+import mock, operator, os, sys, unittest
 
 top_builddir = os.path.join(os.path.dirname(__file__), os.path.pardir)
 if top_builddir[-1] != os.path.sep:
     top_builddir += os.path.sep
 sys.path.insert(0, top_builddir)
 
-from columnize import columnize
+from columnize import columnize, computed_displaywidth
 
 class TestColumize(unittest.TestCase):
 
@@ -139,6 +139,11 @@ class TestColumize(unittest.TestCase):
                       opts={'displaywidth':10, 'arrange_array':True}))
 
         return
+
+    @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
+    def test_computed_displaywidth_environ_COLUMNS_set(self):
+        width = computed_displaywidth()
+        self.assertEqual(width, 87)
 
     def test_errors(self):
         """Test various error conditions."""
