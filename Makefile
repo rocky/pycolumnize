@@ -13,24 +13,29 @@ PYTHON3 ?= python3
 all: check
 
 #: Run all tests
-check: check2 check3
+check:
+	tox
+
+check-short:
+	tox -- --quiet | \
+  $(PYTHON) ./make-check-filter.py
 
 #: Run test with minimum extra output.
-check-short: check-short2 check-short3
+# check-short: check-short2 check-short3
 
-check2:
-	$(PYTHON) ./setup.py nosetests
-
-check3:
-	$(PYTHON3) ./setup.py nosetests
-
-check-short2:
-	$(PYTHON) ./setup.py nosetests --quiet | \
-	$(PYTHON) ./make-check-filter.py
-
-check-short3:
-	$(PYTHON3) ./setup.py nosetests --quiet | \
-	$(PYTHON3) ./make-check-filter.py
+# check2:
+# 	$(PYTHON) ./setup.py nosetests
+# 
+# check3:
+# 	$(PYTHON3) ./setup.py nosetests
+# 
+# check-short2:
+# 	$(PYTHON) ./setup.py nosetests --quiet | \
+# 	$(PYTHON) ./make-check-filter.py
+# 
+# check-short3:
+# 	$(PYTHON3) ./setup.py nosetests --quiet | \
+# 	$(PYTHON3) ./make-check-filter.py
 
 #: Clean up temporary files
 clean:
