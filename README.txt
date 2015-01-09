@@ -12,7 +12,8 @@ $ python
 >>> import columnize
 ```
 
-With numeric data:
+With numeric data
+-----------------
 
 ```python
 >>> print(columnize.columnize(['1', '2', '3', '4'], displaywidth=6)) # => '1  3\n2  4\n')
