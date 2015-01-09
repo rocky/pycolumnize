@@ -12,45 +12,6 @@ $ python
 >>> import columnize
 ```
 
-With numeric data
------------------
-
-```python
->>> print(columnize.columnize(['1', '2', '3', '4'], displaywidth=6)) # => '1  3\n2  4\n')
-1  3
-2  4
-
->>> print(columnize.columnize(list(range(1,5)), opts={'arrange_array':True, 'displaywidth':6}))
-[1, 2
- 3, 4]
-
->>> print(columnize.columnize(list(range(1,6)), displaywidth=8))
-1  3  5
-2  4
-```
-
-By default entries are left justified:
-
-```python
->>>  print(columnize.columnize(list(range(1,16)), displaywidth=10))
-
-1  6   11
-2  7   12
-3  8   13
-4  9   14
-5  10  15
-```
-but you can change that with *ljust*:
-
-```python
->>>  print(columnize.columnize(list(range(1,16)), displaywidth=10, ljust=False))
-1   6  11
-2   7  12
-3   8  13
-4   9  14
-5  10  15
-```
-
 With String data
 ----------------
 
@@ -83,6 +44,47 @@ leopard
 ```
 
 Normally, consecutive items go down from the top to bottom from the left-most column to the right-most. If *arrange_vertical* is set false, consecutive items will go across, left to right, top to bottom.
+
+With numeric data
+-----------------
+
+```python
+>>> print(columnize.columnize(['1', '2', '3', '4'], displaywidth=6)) # => '1  3\n2  4\n')
+1  3
+2  4
+
+>>> print(columnize.columnize(list(range(1,6)), displaywidth=8))
+1  3  5
+2  4
+```
+
+By default entries are left justified:
+
+```python
+>>>  print(columnize.columnize(list(range(1,16)), displaywidth=10))
+
+1  6   11
+2  7   12
+3  8   13
+4  9   14
+5  10  15
+```
+but you can change that with *ljust* or if *arrange_array* is set to *True*:
+
+```python
+>>>  print(columnize.columnize(list(range(1,16)), displaywidth=10, ljust=False))
+1   6  11
+2   7  12
+3   8  13
+4   9  14
+5  10  15
+
+>>> print(columnize.columnize(list(range(1,5)), opts={'arrange_array':True, 'displaywidth':6}))
+[1, 2
+ 3, 4]
+
+
+```
 
 Credits
 -------
