@@ -1,9 +1,10 @@
 *.bak
-/*.egg
 .eggs/
+/*.egg
 /*.egg-info
 /*.pyc
 /*~
+/.tox
 /build
 /dist
 __pycache__
