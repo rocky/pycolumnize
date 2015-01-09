@@ -145,6 +145,11 @@ class TestColumize(unittest.TestCase):
         width = computed_displaywidth()
         self.assertEqual(width, 87)
 
+    @mock.patch.dict('os.environ', {'COLUMNS': 'not an int'}, clear=True)
+    def test_computed_displaywidth_environ_COLUMNS_not_an_int(self):
+        width = computed_displaywidth()
+        self.assertEqual(width, 80)
+
     @mock.patch.dict('os.environ', {}, clear=True)
     def test_computed_displaywidth_environ_COLUMNS_unset(self):
         width = computed_displaywidth()
