@@ -145,6 +145,11 @@ class TestColumize(unittest.TestCase):
         width = computed_displaywidth()
         self.assertEqual(width, 87)
 
+    @mock.patch.dict('os.environ', {}, clear=True)
+    def test_computed_displaywidth_environ_COLUMNS_unset(self):
+        width = computed_displaywidth()
+        self.assertEqual(width, 80)
+
     def test_errors(self):
         """Test various error conditions."""
         self.assertRaises(TypeError, columnize, 5, 'reject input - not array')
