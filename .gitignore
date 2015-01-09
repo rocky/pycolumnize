@@ -1,5 +1,6 @@
 *.bak
 /*.egg
+.eggs/
 /*.egg-info
 /*.pyc
 /*~
