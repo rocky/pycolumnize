@@ -1,4 +1,4 @@
-[![Downloads](https://pypip.in/download/columnize/badge.svg)](https://pypi.python.org/pypi/columnize/)[![Latest Version](https://pypip.in/version/columnize/badge.svg)](https://pypi.python.org/pypi/columnize/)[![Supported Python versions](https://pypip.in/py_versions/columnize/badge.svg)](https://pypi.python.org/pypi/columnize/)
+![Downloads](https://pypip.in/download/columnize/badge.svg) [![Build Status](https://travis-ci.org/rocky/python2-trepan.svg)](https://pypi.python.org/pypi/columnize/) [![Latest Version](https://pypip.in/version/columnize/badge.svg)](https://pypi.python.org/pypi/columnize/) [![Supported Python versions](https://pypip.in/py_versions/columnize/badge.svg)](https://pypi.python.org/pypi/columnize/)
 
 In showing a long lists, sometimes one would prefer to see the value arranged aligned in columns. Some examples include listing methods of an object, listing debugger commands, or showing a numeric array with data aligned.
 
