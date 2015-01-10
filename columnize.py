@@ -47,12 +47,7 @@ default_opts = {
 
 
 def get_option(key, options):
-    global default_opts
-    if key not in options:
-        return default_opts.get(key)
-    else:
-        return options[key]
-    return None  # Not reached
+    return options.get(key, default_opts.get(key))
 
 
 def columnize(array, displaywidth=80, colsep = '  ',
