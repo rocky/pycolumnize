@@ -29,14 +29,14 @@ madascar
 leopard
 mourning
 
->>> print(columnize.columnize(g, displaywidth=19, :colsep => ' | '))
+>>> print(columnize.columnize(g, displaywidth=19, colsep=' | '))
 bibrons  | suras
 golden   | tokay
 madascar
 leopard
 mourning
 
->>> print(columnize.columnize(g displaywidth=18, colsep=' | ', ljust=false))
+>>> print(columnize.columnize(g, displaywidth=18, colsep=' | ', ljust=False))
 bibrons  | mourning
 golden   | suras
 madascar | tokay
