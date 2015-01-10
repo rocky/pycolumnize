@@ -163,6 +163,26 @@ class TestColumize(unittest.TestCase):
         width = computed_displaywidth()
         self.assertEqual(width, 46)
 
+    @mock.patch.dict('os.environ', {}, clear=True)
+    @mock.patch('os.popen')
+    def test_computed_displaywidth_tput_fail_stty_ok(self, mock_popen):
+        mock_popen.side_effect = [
+            StringIO(b''.decode('utf-8')),        # tput fails
+            StringIO(b'43 171'.decode('utf-8')),  # stty succeeds
+        ]
+        width = computed_displaywidth()
+        self.assertEqual(width, 171)
+
+    @mock.patch.dict('os.environ', {}, clear=True)
+    @mock.patch('os.popen')
+    def test_computed_displaywidth_tput_fail_stty_fail(self, mock_popen):
+        mock_popen.side_effect = [
+            StringIO(b''.decode('utf-8')),  # tput fails
+            StringIO(b''.decode('utf-8')),  # stty succeeds
+        ]
+        width = computed_displaywidth()
+        self.assertEqual(width, 80)         # 80 is default if all else fails
+
     def test_errors(self):
         """Test various error conditions."""
         self.assertRaises(TypeError, columnize, 5, 'reject input - not array')

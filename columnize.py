@@ -25,7 +25,7 @@ def terminal_width():
     except (KeyError, ValueError):
         try:
             width = int(os.popen('stty size').read().split()[1])
-        except (KeyError, ValueError):
+        except (IndexError, KeyError, ValueError):
             width = None
 
     return width
