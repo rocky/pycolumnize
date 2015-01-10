@@ -11,14 +11,25 @@ def computed_displaywidth():
     '''Figure out a reasonable default with. Use os.environ['COLUMNS'] if possible,
     and failing that use 80.
     '''
-    width = 80
-    if 'COLUMNS' in os.environ:
+    try:
+        width = int(os.environ['COLUMNS'])
+    except (KeyError, ValueError):
+        width = terminal_width()
+
+    return width or 80
+
+
+def terminal_width():
+    try:
+        width = int(os.popen('tput cols').read())
+    except (KeyError, ValueError):
         try:
-            width = int(os.environ['COLUMNS'])
-        except:
-            pass
-        pass
+            width = int(os.popen('stty size').read().split()[1])
+        except (KeyError, ValueError):
+            width = None
+
     return width
+
 
 default_opts = {
     'arrange_array'    : False,  # Check if file has changed since last time

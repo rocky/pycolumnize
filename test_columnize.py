@@ -2,6 +2,10 @@
 # -*- Python -*-
 "Unit test for Columnize"
 import mock, operator, os, sys, unittest
+try:
+    from io import StringIO
+except ImportError:
+    from StringIO import StringIO
 
 top_builddir = os.path.join(os.path.dirname(__file__), os.path.pardir)
 if top_builddir[-1] != os.path.sep:
@@ -146,14 +150,18 @@ class TestColumize(unittest.TestCase):
         self.assertEqual(width, 87)
 
     @mock.patch.dict('os.environ', {'COLUMNS': 'not an int'}, clear=True)
-    def test_computed_displaywidth_environ_COLUMNS_not_an_int(self):
+    @mock.patch('os.popen')
+    def test_computed_displaywidth_environ_COLUMNS_not_an_int(self, mock_popen):
+        mock_popen.return_value = StringIO(b'52'.decode('utf-8'))
         width = computed_displaywidth()
-        self.assertEqual(width, 80)
+        self.assertEqual(width, 52)
 
     @mock.patch.dict('os.environ', {}, clear=True)
-    def test_computed_displaywidth_environ_COLUMNS_unset(self):
+    @mock.patch('os.popen')
+    def test_computed_displaywidth_environ_COLUMNS_unset(self, mock_popen):
+        mock_popen.return_value = StringIO(b'46'.decode('utf-8'))
         width = computed_displaywidth()
-        self.assertEqual(width, 80)
+        self.assertEqual(width, 46)
 
     def test_errors(self):
         """Test various error conditions."""
