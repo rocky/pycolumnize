@@ -265,7 +265,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
     pass
 
 # Demo it
-if __name__=='__main__':
+if __name__=='__main__':  # pragma: no cover
     # from trepan.api import debug
     # debug()
     print(columnize(range(12),
