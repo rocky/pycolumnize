@@ -76,7 +76,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
     the left-most column to the right-most. If "arrange_vertical" is
     set false, consecutive items will go across, left to right, top to
     bottom."""
-    if not isinstance(array, list) and not isinstance(array, tuple):
+    if not isinstance(array, (list, tuple)):
         raise TypeError((
             'array needs to be an instance of a list or a tuple'))
 
