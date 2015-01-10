@@ -144,6 +144,20 @@ class TestColumize(unittest.TestCase):
 
         return
 
+    def test_colfmt(self):
+        self.assertEqual('    0      1      2      3\n',
+                         columnize([0, 1, 2, 3], 7,
+                                   arrange_vertical=False,
+                                   opts={'colfmt': '%5d'}))
+
+    def test_lineprefix(self):
+        self.assertEqual('>>>       0      3\n>>>       1\n>>>       2\n',
+                         columnize([0, 1, 2, 3], 7,
+                                   arrange_vertical=False,
+                                   opts={'colfmt': '%5d',
+                                         'displaywidth': 17,
+                                         'lineprefix': '>>>   '}))
+
     @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
     def test_computed_displaywidth_environ_COLUMNS_set(self):
         width = computed_displaywidth()
