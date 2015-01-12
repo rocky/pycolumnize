@@ -4,7 +4,7 @@
 # These comments before the targets start with #:
 # remake --tasks to shows the targets and the comments
 
-PHONY=check check2 check3 check-short check-short2 check-short3 clean dist distclean test
+PHONY=check check-full check3 check-short check-short2 check-short3 clean dist distclean test
 GIT2CL ?= git2cl
 PYTHON ?= python
 PYTHON3 ?= python3
@@ -12,27 +12,23 @@ PYTHON3 ?= python3
 #: the default target - same as running "check"
 all: check
 
-#: Run all tests
-check:
+#: Run all tests with several Python versions via tox
+check-full:
 	tox
 
-check-short:
+#: Run all tests with several Python versions via tox, minimum output
+check-full-short:
 	tox -- --quiet | \
   $(PYTHON) ./make-check-filter.py
 
-#: Run test with minimum extra output.
-# check-short: check-short2 check-short3
+#: Run tests (one version of Python)
+check:
+	$(PYTHON) ./setup.py nosetests
 
-# check2:
-# 	$(PYTHON) ./setup.py nosetests
-# 
-# check3:
-# 	$(PYTHON3) ./setup.py nosetests
-# 
-# check-short2:
-# 	$(PYTHON) ./setup.py nosetests --quiet | \
-# 	$(PYTHON) ./make-check-filter.py
-# 
+check-short:
+	$(PYTHON) ./setup.py nosetests --quiet | \
+	$(PYTHON) ./make-check-filter.py
+#
 # check-short3:
 # 	$(PYTHON3) ./setup.py nosetests --quiet | \
 # 	$(PYTHON3) ./make-check-filter.py
