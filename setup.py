@@ -14,6 +14,12 @@ from __pkginfo__ import \
 __import__('pkg_resources')
 from setuptools import setup
 
+install_requires = []
+
+import sys
+if sys.version_info < (3, 3):
+    install_requires.append('backports.shutil_get_terminal_size')
+
 setup(
       author             = author,
       author_email       = author_email,
@@ -26,6 +32,7 @@ setup(
       url                = web,
       version            = VERSION,
       py_modules         = py_modules,
+      install_requires   = install_requires,
       setup_requires     = ['nose>=1.0'],
       zip_safe           = zip_safe
       )

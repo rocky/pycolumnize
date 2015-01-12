@@ -5,6 +5,10 @@ array of strings.
 Adapted from the routine of the same name inside cmd.py"""
 
 import os
+try:
+    from shutil import get_terminal_size  # Python >= 3.3
+except ImportError:
+    from backports.shutil_get_terminal_size import get_terminal_size
 
 
 def computed_displaywidth():
@@ -14,21 +18,9 @@ def computed_displaywidth():
     try:
         width = int(os.environ['COLUMNS'])
     except (KeyError, ValueError):
-        width = terminal_width()
+        width = get_terminal_size().columns
 
     return width or 80
-
-
-def terminal_width():
-    try:
-        width = int(os.popen('tput cols').read())
-    except (KeyError, ValueError):
-        try:
-            width = int(os.popen('stty size').read().split()[1])
-        except (IndexError, KeyError, ValueError):
-            width = None
-
-    return width
 
 
 default_opts = {
