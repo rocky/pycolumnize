@@ -1,7 +1,212 @@
+2015-01-12  rocky <rocky@gnu.org>
+
+	* : commit 8778302455baed1b02a6822b058a86029bb17729 Merge: 5352178
+	58c6e01 Author: R. Bernstein <rocky@users.noreply.github.com> Date:
+	Mon Jan 12 13:50:35 2015 -0500
+
+2015-01-12  rocky <rocky@gnu.org>
+
+	* : commit 535217850ce78dd20a9d3c2ae4901e80489f492e Merge: 4cfbdae
+	24d61dd Author: R. Bernstein <rocky@users.noreply.github.com> Date:
+	Mon Jan 12 13:07:49 2015 -0500
+
+2015-01-11  rocky <rb@dustyfeet.com>
+
+	* .python-version: More ignore
+
+2015-01-11  rocky <rb@dustyfeet.com>
+
+	* MANIFEST.in, Makefile, setup.cfg: Makefile: "check" target just
+	runs one version of python. "check-full" does everything. Add
+	comments.  setup.cfg, MANIFEST.in: correct for moved tests
+
+2015-01-10  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #20 from msabramo/patch-4 README.md: Fix typos in Python examples
+
+2015-01-10  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #18 from msabramo/add_2_more_tests Add 2 more tests
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* columnize.py, setup.py, test_columnize.py: Use
+	shutil.get_terminal_size on Python >= 3.3 and backports.shutil_get_terminal_size on Python < 3.3 Fixes #16
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* test_columnize.py: Add 2 more tests
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* .coveragerc, columnize.py: Use .coveragerc to exclude lines This is more effective an nicer than littering the code with `#
+	pragma: no cover` for every `pass` and such.
+
+2015-01-10  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #14 from msabramo/patch-2 Simplify get_option
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* columnize.py: isinstance can take a tuple of types
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* columnize.py: Simplify get_option
+
+2015-01-10  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #12 from msabramo/patch-1 Ignore coverage for __main__
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #11 from msabramo/increase_coverage Increase coverage + fix prob when stty size fails
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #10 from msabramo/patch-1 .travis.yml: Run "cover" target
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #9 from msabramo/measure_coverage Add `cover` tox target
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #1 from
+	msabramo/smarter_computed_displaywidth Make computed_displaywidth use tput or stty
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #2 from msabramo/test_computed_displaywidth Test computed displaywidth
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* README.md: Put string examples before numeric examples since
+	issues of one will lead into the other.
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #8 from msabramo/example Add example.py
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* test_columnize.py: 
+	test_computed_displaywidth_environ_COLUMNS_not_an_int
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* test_columnize.py: 
+	test_computed_displaywidth_environ_COLUMNS_unset
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* test_columnize.py: Add
+	test_computed_displaywidth_environ_COLUMNS_set
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* requirements.txt, tox.ini: Add mock and pytest as test
+	dependencies
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #7 from msabramo/tox_add_more_envs tox.ini: Add py32, py33, py34 to envlist
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #5 from msabramo/pkginfo_updates __pkginfo__.py: Update web url
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* tox.ini: tox.ini: Add py32, py33, py34 to envlist
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #4 from msabramo/pytest_can_find_tests Make sure py.test can find and run tests
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* MANIFEST.in, __pkginfo__.py: MANIFEST.in: Add README.md
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* .travis.yml: .travis.yml: Use tox instead of `make`
+
+2015-01-09  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* Makefile, test/.gitignore, test/Makefile, test/test-basic.py,
+	test_columnize.py: Make sure py.test can find and run tests Before when running py.test or tox, it wasn't running any tests.  I ended up getting rid of the `test` directory and putting the tests
+	in a single file called `test_columnize.py`.
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #3 from msabramo/gitignore_eggs .gitignore: Add .eggs/
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* README.markdown, README.md, README.txt: Reinstate README.md and
+	README.txt link.
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* README.markdown, README.md: See if this clears up travis
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* : commit f915e19cfdf02aa6c836a1fd2078c5d7e8ca9adc Author: rocky
+	<rocky@gnu.org> Date:   Fri Jan 9 08:41:55 2015 -0500
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* README.txt: Badge image name change from "pypi" to "version"
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* README.txt: Add travis badge
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* .travis.yml: Travis 3rd try
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* requirements.txt: Missing requirements file. Travis 2nd try
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* README.txt: Markdown styling in README. See if travis kicks off
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* .travis.yml, columnize.py, tox.ini: Add tox.ini file and we'll try
+	travis soon.
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* README.md, README.txt: Convert READMER to markdown.
+
+2015-01-09  rocky <rocky@gnu.org>
+
+	* : commit ed822f072d2c32d4912c77f9f966adbf775536ef Author: rocky
+	<rocky@gnu.org> Date:   Fri Jan 9 07:03:13 2015 -0500
+
+2015-01-09  R. Bernstein <rocky@users.noreply.github.com>
+
+	* LICENSE: Initial commit
+
+2013-04-22  rocky <rocky@gnu.org>
+
+	* : commit 08d6e764ad32594df3d4b04e9720f51dd18deb8f Author: rocky
+	<rocky@gnu.org> Date:   Mon Apr 22 11:19:55 2013 -0400
+
+2013-04-22  rocky <rocky@yu.edu>
+
+	* ChangeLog, NEWS, VERSION.py, columnize.py, test/test-basic.py: Fix
+	bugs in arrange_array. Get ready for release 0.3.6
+
 2013-04-21  rocky <rocky@gnu.org>
 
 	* VERSION.py, columnize.py: Fix bug in getting computed displaywidth
-
 
 2013-04-18  rocky <rocky@gnu.org>
 
@@ -51,7 +256,6 @@
 	* Makefile, NEWS, VERSION.py: Make 3k tolerant. Add "remake" target
 	comments to Makefile and use git2cl to make ChangeLog. Bump version.
 
-
 2013-01-02  rocky <rocky@gnu.com>
 
 	* svn2cl_usermap: Administriva
@@ -63,164 +267,139 @@
 
 2010-10-29  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* __pkginfo__.py, setup.py: VERSION variable was incorrect.
-	git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@33
+	* __pkginfo__.py, setup.py: VERSION variable was incorrect.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@33
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2010-10-28  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* NEWS, VERSION.py, __pkginfo__.py, setup.py, svn2cl_usermap: Get
-	ready for release  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@32
+	ready for release git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@32
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2010-06-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* columnize.py: Remove pyflake warning  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@31
+	* columnize.py: Remove pyflake warning git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@31
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2010-06-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* __pkginfo__.py, columnize.py: Remove reference to GPL3.
-	git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@30
+	* __pkginfo__.py, columnize.py: Remove reference to GPL3.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@30
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-06-23  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* LICENSE, __pkginfo__.py: Add PSF2 license.   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@29
+	* LICENSE, __pkginfo__.py: Add PSF2 license.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@29
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-03-08  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* NEWS, __pkginfo__.py: Get ready fo 0.3.2 release  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@27
+	* NEWS, __pkginfo__.py: Get ready fo 0.3.2 release git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@27
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py, test/test-basic.py: Relax restriction that array has
 	to be string. Now is just something we can call str() on each of the
-	elements on.  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@26
+	elements on.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@26
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py, test/test-basic.py: Missed align-vertical case.
-	Really should DRY code.  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@25
+	Really should DRY code.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@25
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* __pkginfo__.py: Bump version  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@24
+	* __pkginfo__.py: Bump version git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@24
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py, test/test-basic.py: Add an optional initial line
-	prefix string  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@23
+	prefix string git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@23
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-10  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* __pkginfo__.py: Ooops forgot version number update  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@21
+	* __pkginfo__.py: Ooops forgot version number update git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@21
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-10  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* NEWS: get ready for 0.3.1 release  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@19
+	* NEWS: get ready for 0.3.1 release git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@19
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-10  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* setup.cfg, test/test-basic.py: Some small typos.   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@18
+	* setup.cfg, test/test-basic.py: Some small typos.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@18
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-06  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* NEWS, __pkginfo__.py, columnize.py, test/test-basic.py: Fix those
-	bad formatting bugs. Add ability to right-justify text in columns.
-	git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@16
+	bad formatting bugs. Add ability to right-justify text in columns.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@16
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-05  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py: arrange_vertical is buggy. Start to redo. Not
-	completely correct - more later.   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@15
+	completely correct - more later.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@15
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-01  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* columnize.py: Doc typo   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@13
+	* columnize.py: Doc typo git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@13
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2009-01-01  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* NEWS, README.txt: Update for 0.2.0 release.   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@11
+	* NEWS, README.txt: Update for 0.2.0 release.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@11
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py, test/Makefile, test/test-basic.py: Remove duplicate
-	trainling \n from horizontal formatting.   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@10
+	trainling \n from horizontal formatting.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@10
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-31  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* __pkginfo__.py, columnize.py, test/test-basic.py: Allow horizontal
-	arrangement as well as vertical arrangement  git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@9
+	arrangement as well as vertical arrangement git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@9
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-16  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py: Revert trying to arrange vertically - it's a little
-	more complicated. This time, for sure\!   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@8
+	more complicated. This time, for sure\! git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@8
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-16  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py: Revert trying to arrange vertically - it's a little
-	more compilcated   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@7
+	more compilcated git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@7
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
 	* columnize.py, test/test-basic.py: Start a horizontally-arranged
-	version. Buggy.   git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@6
+	version. Buggy.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@6
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-15  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* .gitignore, test/.gitignore: Administrivia - add .gitignore.
-	git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@5
+	* .gitignore, test/.gitignore: Administrivia - add .gitignore.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@5
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-14  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* __pkginfo__.py, setup.py: Nuke download URL. Was messing up pypi.
-	git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@4
+	* __pkginfo__.py, setup.py: Nuke download URL. Was messing up pypi.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@4
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-14  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
 
-	* __pkginfo__.py: Add web address now that we have one.
-	git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@3
+	* __pkginfo__.py: Add web address now that we have one.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@3
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 
 2008-12-14  rocky.bernstein <rocky.bernstein@220420d0-c99f-11dd-87b6-9d1a99559f42>
@@ -228,7 +407,11 @@
 	* Makefile, README.txt, __init__.py, __pkginfo__.py, columnize.py,
 	setup.cfg, setup.py, test/.cvsignore, test/test-basic.py: Promote
 	Python's columnize function inside cmd.py to a module. Some small
-	adjustments have been made.    git-svn-id:
-	https://pycolumnize.googlecode.com/svn/trunk@2
+	adjustments have been made.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@2
+	220420d0-c99f-11dd-87b6-9d1a99559f42
+
+2008-12-14  (no author) <(no author)@220420d0-c99f-11dd-87b6-9d1a99559f42>
+
+	* Initial directory structure.  git-svn-id: https://pycolumnize.googlecode.com/svn/trunk@1
 	220420d0-c99f-11dd-87b6-9d1a99559f42
 

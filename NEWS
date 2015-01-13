@@ -1,3 +1,10 @@
+0.3.7 05-01-13
+
+- Get terminal size more portably and reliably (Marc Abramowitz)
+- More complete test coverage and testing across python versions, and
+  add an additional demo program (Marc Abramowitz)
+- README changes, move to github,
+
 0.3.6 04-22-13
 
 - Fix bugs in arrange_array
