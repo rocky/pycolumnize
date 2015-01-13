@@ -5,11 +5,11 @@
   add an additional demo program (Marc Abramowitz)
 - README changes, move to github,
 
-0.3.6 04-22-13
+0.3.6 2014-22-13
 
 - Fix bugs in arrange_array
 
-0.3.5 04-18-13
+0.3.5 2014-18-13
 
 - Reinstate ability to run on older Pythons. In particular Python
   2.4.6 and 2.5.6 now. I suppose other version in between work too.
@@ -29,16 +29,16 @@
 
 - Fixes to make source tarball work. (Added test files properly)
 
-0.3.4 01-03-13
+0.3.4 2013-01-03
 - Make 3k tolerant. This means it no longer works for versions less
   than Python 2.6.
 
-0.3.3 10-28-10
+0.3.3 2010-28-10
 - Work on packaging
 - Remove pyflakes warnings
 - Correct licensing information
 
-0.3.2 03-08-09 - Ron Frankel -1 Release
+0.3.2 2009-03-08 - Ron Frankel -1 Release
 
 - Relax restriction that array has to be string. Now is just something
   we can call str() on each of the elements on.
@@ -47,14 +47,14 @@
 
 - Add an optional initial line prefix string
 
-0.3.1 01-10-09 - Sam Woodward Release
+0.3.1 2009-01-10 - Sam Woodward Release
 - Some small typos fixed.
 
-0.3.0 01-05-09
+0.3.0 2009-01-05
 
 - 0.2.0 had bad bugs - don't use.
   Allow specifying right justification as well as left justification
 
-0.2.0 12-31-08
+0.2.0 2008-12-31
 
 - Add ability to run columns vertically
