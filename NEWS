@@ -1,4 +1,4 @@
-0.3.7 05-01-13
+0.3.7 2015-01-13
 
 - Get terminal size more portably and reliably (Marc Abramowitz)
 - More complete test coverage and testing across python versions, and
