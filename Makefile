@@ -38,16 +38,20 @@ clean:
 	$(PYTHON) ./setup.py $@
 
 #: Create source (tarball) and binary (egg) distribution
-dist:
+dist: README.rst
 	$(PYTHON) ./setup.py sdist bdist
 
 #: Create source tarball
-sdist:
+sdist: README.rst
 	$(PYTHON) ./setup.py sdist
 
 #: Create binary egg distribution
-bdist_egg:
+bdist_egg: README.rst
 	$(PYTHON) ./setup.py bdist_egg
+
+#: Convert README.md to README.rst for PyPI
+README.rst: README.md
+	pandoc --to=rst README.md  > README.rst
 
 # It is too much work to figure out how to add a new command to distutils
 # to do the following. I'm sure distutils will someday get there.
