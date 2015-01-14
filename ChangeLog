@@ -1,3 +1,33 @@
+2015-01-13  rocky <rocky@gnu.org>
+
+	* .gitignore, .travis.yml, ChangeLog, MANIFEST.in, Makefile, NEWS,
+	README.rst, README.txt, VERSION.py, __pkginfo__.py: README.rst is
+	derived so it should not be in github.  README.txt will be used when
+	README.rst isn't there (for travis) Get ready for release 0.3.8
+
+2015-01-13  rocky <rocky@gnu.org>
+
+	* MANIFEST.in, Makefile, README.rst, README.txt: Make README.rst
+	from README.md. Fixes issue #22
+
+2015-01-13  rocky <rocky@gnu.org>
+
+	* NEWS: Regularize dates.
+
+2015-01-13  rocky <rocky@gnu.org>
+
+	* : commit 93e7a027c25b7774eedee4045995e3649d5d9856 Author: rocky
+	<rocky@gnu.org> Date:   Tue Jan 13 05:38:58 2015 -0500
+
+2015-01-13  Marc Abramowitz <marc@marc-abramowitz.com>
+
+	* NEWS: NEWS: Fix date for 0.3.7
+
+2015-01-13  rocky <rocky@gnu.org>
+
+	* .python-version, ChangeLog, NEWS, VERSION.py: Get ready for
+	release 0.3.7
+
 2015-01-12  rocky <rocky@gnu.org>
 
 	* : commit 8778302455baed1b02a6822b058a86029bb17729 Merge: 5352178

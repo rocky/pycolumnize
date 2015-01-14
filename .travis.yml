@@ -11,7 +11,7 @@ env:
     - TOXENV=cover
 
 install:
-    - travis_retry pip install tox
+  - travis_retry pip install tox
 
 script:
     - tox

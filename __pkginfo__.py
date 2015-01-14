@@ -29,5 +29,7 @@ zip_safe = False
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
-long_description   = ( read("README.md") + '\n\n' +  read("NEWS") )
 
+readme = 'README.txt'
+if os.path.exists('README.rst'): readme = 'README.rst'
+long_description   = ( read(readme) + '\n\n' +  read("NEWS") )

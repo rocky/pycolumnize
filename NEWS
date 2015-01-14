@@ -1,3 +1,7 @@
+0.3.8 2015-01-13
+
+- Rerelease for PyPI and its f*cking Rst.
+
 0.3.7 2015-01-13
 
 - Get terminal size more portably and reliably (Marc Abramowitz)
