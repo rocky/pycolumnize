@@ -32,4 +32,4 @@ def read(*rnames):
 
 readme = 'README.txt'
 if os.path.exists('README.rst'): readme = 'README.rst'
-long_description   = ( read(readme) + '\n\n' +  read("NEWS") )
+long_description   = ( read(readme) + '\n' )
