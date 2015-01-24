@@ -1,7 +1,9 @@
 """packaging information"""
 # Things that change more often go here.
-copyright   = '''Copyright (C) 2008-2010, 2013 Rocky Bernstein <rocky@gnu.org>.'''
-classifiers =  ['Development Status :: 4 - Beta',
+copyright   = '''
+Copyright (C) 2008-2010, 2013, 2015 Rocky Bernstein <rocky@gnu.org>.
+'''
+classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Intended Audience :: Developers',
                 'License :: OSI Approved :: Python Software Foundation License',
                 'Programming Language :: Python',
