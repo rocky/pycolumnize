@@ -11,4 +11,3 @@ __pycache__
 .coverage
 coverage.xml
 htmlcov/
-README.rst
