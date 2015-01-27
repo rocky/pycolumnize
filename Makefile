@@ -49,13 +49,6 @@ sdist: README.rst
 bdist_egg: README.rst
 	$(PYTHON) ./setup.py bdist_egg
 
-#: Convert README.md to README.rst for PyPI
-README.rst: README.md
-	pandoc --to=rst README.md  > README.rst
-
-README.txt: README.md
-	pandoc --to=plain README.md  > README.text
-
 # It is too much work to figure out how to add a new command to distutils
 # to do the following. I'm sure distutils will someday get there.
 DISTCLEAN_FILES = build dist *.egg-info *.pyc *.so py*.py
