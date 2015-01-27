@@ -103,7 +103,7 @@ adjustments and generalizations have been made.
 Other stuff
 -----------
 
-Authors: Rocky Bernstein rockyb@rubyforge.org |endorse|
+Authors: Rocky Bernstein rockyb@rubyforge.org
 
 License: MIT
 
