@@ -114,5 +114,3 @@ License: MIT
    :target: https://pypi.python.org/pypi/columnize/
 .. |Supported Python versions| image:: https://pypip.in/py_versions/columnize/badge.svg
    :target: https://pypi.python.org/pypi/columnize/
-.. |endorse| image:: https://api.coderwall.com/rocky/endorsecount.png
-   :target: https://coderwall.com/rocky
