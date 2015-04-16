@@ -106,7 +106,7 @@ Authors: Rocky Bernstein rockyb@rubyforge.org
 
 License: MIT
 
-.. |Downloads| image:: https://pypip.in/download/columnize/badge.svg
+.. |Downloads| image:: https://pypip.in/download/pycolumnize/badge.svg
 .. |Build Status| image:: https://travis-ci.org/rocky/python2-trepan.svg
    :target: https://travis-ci.org/rocky/columnize/
 .. |Latest Version| image:: https://pypip.in/version/columnize/badge.svg?text=version
