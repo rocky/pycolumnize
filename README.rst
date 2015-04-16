@@ -27,7 +27,7 @@ width.
 .. code:: python
 
     >>> g = ('bibrons', 'golden', 'madascar', 'leopard', 'mourning', 'suras', 'tokay')
-    >>> print(columnize.columnize(g, displaywidth=15)
+    >>> print(columnize.columnize(g, displaywidth=15))
     bibrons   suras
     golden    tokay
     madascar
@@ -35,17 +35,16 @@ width.
     mourning
 
     >>> print(columnize.columnize(g, displaywidth=19, colsep=' | '))
-    bibrons  | suras
-    golden   | tokay
-    madascar
-    leopard
-    mourning
-
-    >>> print(columnize.columnize(g, displaywidth=18, colsep=' | ', ljust=False))
     bibrons  | mourning
     golden   | suras
     madascar | tokay
     leopard
+
+    >>> print(columnize.columnize(g, displaywidth=18, colsep=' | ', ljust=False))
+    bibrons | suras
+     golden | tokay
+    madascar
+     leopard
 
 Normally, consecutive items go down from the top to bottom from the
 left-most column to the right-most. If *arrange\_vertical* is set false,
@@ -56,7 +55,7 @@ With numeric data
 
 .. code:: python
 
-    >>> print(columnize.columnize(['1', '2', '3', '4'], displaywidth=6)) # => '1  3\n2  4\n')
+    >>> print(columnize.columnize(['1', '2', '3', '4'], displaywidth=6)) # => '1  3\n2  4\n'
     1  3
     2  4
 
