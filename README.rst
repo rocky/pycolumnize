@@ -106,9 +106,9 @@ Authors: Rocky Bernstein rockyb@rubyforge.org
 
 License: MIT
 
-.. |Downloads| image:: https://pypip.in/download/pycolumnize/badge.svg
-.. |Build Status| image:: https://travis-ci.org/rocky/python2-trepan.svg
-   :target: https://travis-ci.org/rocky/columnize/
+.. |Downloads| image:: https://pypip.in/download/columnize/badge.svg
+.. |Build Status| image:: https://travis-ci.org/rocky/pycolumnize.svg
+   :target: https://travis-ci.org/rocky/pycolumnize/
 .. |Latest Version| image:: https://pypip.in/version/columnize/badge.svg?text=version
    :target: https://pypi.python.org/pypi/columnize/
 .. |Supported Python versions| image:: https://pypip.in/py_versions/columnize/badge.svg
