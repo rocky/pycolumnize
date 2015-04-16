@@ -255,9 +255,9 @@ def columnize(array, displaywidth=80, colsep = '  ',
 if __name__=='__main__':
     # from trepan.api import debug
     # debug()
-    print(columnize(range(12),
+    print(columnize(list(range(12)),
                       opts={'displaywidth':6, 'arrange_array':True}))
-    print(columnize(range(12),
+    print(columnize(list(range(12)),
                       opts={'displaywidth':10, 'arrange_array':True}))
     for t in ((4, 4,), (4, 7), (100, 80)):
         width = t[1]
