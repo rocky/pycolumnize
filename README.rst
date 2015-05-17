@@ -95,7 +95,7 @@ Credits
 -------
 
 This module (essentially one function) was adapted from a private method
-of the same name from Python’s
+of the same name from Python's
 `cmd <http://docs.python.org/library/cmd.html>`__ module. Some
 adjustments and generalizations have been made.
 
