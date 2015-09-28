@@ -33,6 +33,6 @@ setup(
       version            = VERSION,
       py_modules         = py_modules,
       install_requires   = install_requires,
-      setup_requires     = ['nose>=1.0'],
+      tests_requires     = ['pytest'],
       zip_safe           = zip_safe
       )
