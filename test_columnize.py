@@ -154,6 +154,12 @@ class TestColumize(unittest.TestCase):
                                          'displaywidth': 17,
                                          'lineprefix': '>>>   '}))
 
+    def test_lineprefix_just_wide_enough(self):
+        self.assertEqual('>>>10  12\n>>>11  13\n',
+                        columnize([10, 11, 12, 13],
+                                  opts={'lineprefix': '>>>',
+                                         'displaywidth': 9}))
+
     @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
     def test_computed_displaywidth_environ_COLUMNS_set(self):
         width = computed_displaywidth()
