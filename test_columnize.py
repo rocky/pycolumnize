@@ -71,7 +71,7 @@ class TestColumize(unittest.TestCase):
             "    32, 33, 34, 35, 36, 37, 38, 39\n" +
             "    40, 41, 42, 43, 44, 45, 46, 47\n" +
             "    48, 49, 50, 51, 52, 53, 54\n",
-            columnize(data, displaywidth=39, ljust=False,
+            columnize(data, displaywidth=34, ljust=False,
                       arrange_vertical=False, colsep=', ',
                       lineprefix='    '))
 
@@ -110,7 +110,7 @@ class TestColumize(unittest.TestCase):
 " 36, 37, 38, 39, 40, 41, 42, 43, 44,\n"+
 " 45, 46, 47, 48, 49, 50, 51, 52, 53,\n"+
 " 54]\n\n", columnize(list(range(55)),
-                      opts={'displaywidth':39, 'arrange_array':True}))
+                      opts={'displaywidth':38, 'arrange_array':True}))
 
         self.assertEqual("""[ 0,
   1,
@@ -136,7 +136,7 @@ class TestColumize(unittest.TestCase):
  10, 11]
 
 """, columnize(list(range(12)),
-                      opts={'displaywidth':10, 'arrange_array':True}))
+                      opts={'displaywidth':9, 'arrange_array':True}))
 
         return
 
@@ -153,6 +153,12 @@ class TestColumize(unittest.TestCase):
                                    opts={'colfmt': '%5d',
                                          'displaywidth': 16,
                                          'lineprefix': '>>>   '}))
+
+    def test_lineprefix_just_wide_enough(self):
+        self.assertEqual('>>>10  12\n>>>11  13\n',
+                        columnize([10, 11, 12, 13],
+                                  opts={'lineprefix': '>>>',
+                                         'displaywidth': 9}))
 
     @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
     def test_computed_displaywidth_environ_COLUMNS_set(self):
