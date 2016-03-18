@@ -147,11 +147,11 @@ class TestColumize(unittest.TestCase):
                                    opts={'colfmt': '%5d'}))
 
     def test_lineprefix(self):
-        self.assertEqual('>>>       0      3\n>>>       1\n>>>       2\n',
+        self.assertEqual('>>>       0\n>>>       1\n>>>       2\n>>>       3\n',
                          columnize([0, 1, 2, 3], 7,
                                    arrange_vertical=False,
                                    opts={'colfmt': '%5d',
-                                         'displaywidth': 17,
+                                         'displaywidth': 16,
                                          'lineprefix': '>>>   '}))
 
     @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
