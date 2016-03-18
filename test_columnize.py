@@ -151,7 +151,7 @@ class TestColumize(unittest.TestCase):
                          columnize([0, 1, 2, 3], 7,
                                    arrange_vertical=False,
                                    opts={'colfmt': '%5d',
-                                         'displaywidth': 17,
+                                         'displaywidth': 16,
                                          'lineprefix': '>>>   '}))
 
     @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
