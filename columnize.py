@@ -108,12 +108,6 @@ def columnize(array, displaywidth=80, colsep = '  ',
         return '%s%s%s\n' % (o['array_prefix'], str(array[0]),
                              o['array_suffix'])
 
-    if o['displaywidth'] - len(o['lineprefix']) < 4:
-        o['displaywidth'] = len(o['lineprefix']) + 4
-    else:
-        o['displaywidth'] -= len(o['lineprefix'])
-        pass
-
     o['displaywidth'] = max(4, o['displaywidth'] - len(o['lineprefix']))
     if o['arrange_vertical']:
         array_index = lambda nrows, row, col: nrows*col + row
