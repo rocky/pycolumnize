@@ -118,7 +118,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
     if o['arrange_vertical']:
         array_index = lambda nrows, row, col: nrows*col + row
         # Try every row count from 1 upwards
-        for nrows in range(1, size):
+        for nrows in range(1, size+1):
             ncols = (size+nrows-1) // nrows
             colwidths = []
             totwidth = -len(o['colsep'])
