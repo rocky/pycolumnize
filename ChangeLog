@@ -1,3 +1,109 @@
+2016-03-19  rocky <rocky@gnu.org>
+
+	* ChangeLog, MANIFEST.in, NEWS, THANKS, VERSION.py: Get ready for
+	release 0.3.9
+
+2016-03-18  R. Bernstein <rocky@users.noreply.github.com>
+
+	* : Merge pull request #26 from martica/patch-2 Fix for line prefix width subtraction bug
+
+2016-03-17  Tyler Bindon <martica@martica.org>
+
+	* columnize.py, test_columnize.py: Don't subtract lineprefix width
+	twice
+
+2016-03-17  Tyler Bindon <martica@martica.org>
+
+	* test_columnize.py: Add test for prefix length bug
+
+2016-03-17  Tyler Bindon <martica@martica.org>
+
+	* test_columnize.py: Tweak test to cause crash without fix.
+
+2016-03-17  Tyler Bindon <martica@martica.org>
+
+	* test_columnize.py: Fix the test to reflect the single column
+	output
+
+2016-03-17  Tyler Bindon <martica@martica.org>
+
+	* columnize.py: Fix crash when the displayWidth is too small for two
+	columns It is a degenerate case, but if there is no solution with more than
+	one column, the algorithm currently dies trying to look up the width
+	of the non-existent second column.
+
+2015-12-15  rocky <rocky@gnu.org>
+
+	* .travis.yml: I said remove tex testingfor Python 3.5 on travis!
+
+2015-12-15  rocky <rocky@gnu.org>
+
+	* tox.ini: Remove Python 3.5 tox testing on travis - it dose not
+	work
+
+2015-12-15  rocky <rocky@gnu.org>
+
+	* .travis.yml: Travis: tox is broken for python 3.2. Try python 3.5.
+
+2015-12-15  rocky <rocky@gnu.org>
+
+	* __pkginfo__.py: Note for ActiveState that we support lots of
+	Python versoins
+
+2015-05-17  rocky <rocky@gnu.org>
+
+	* README.rst: Remove weird quote in rSt
+
+2015-05-17  rocky <rocky@gnu.org>
+
+	* __init__.py: Add doc
+
+2015-04-16  rocky <rocky@gnu.org>
+
+	* README.rst: CI Status was pointing to wrong place (2nd try)
+
+2015-04-16  rocky <rocky@gnu.org>
+
+	* README.rst: CI Status was pointing to wrong place
+
+2015-04-16  rocky <rocky@gnu.org>
+
+	* README.rst: Correct README.rst example output
+
+2015-04-16  rocky <rocky@gnu.org>
+
+	* .gitignore, .python-version, columnize.py: columnize.py: demo code
+	now python3 safe .python-version: should not be in git
+
+2015-01-26  rocky <rocky@gnu.org>
+
+	* README.rst: I said remove coderwall endorse
+
+2015-01-26  rocky <rocky@gnu.org>
+
+	* README.rst: Remove coderwall endorse
+
+2015-01-26  rocky <rocky@gnu.org>
+
+	* .gitignore, README.rst: Forgot to add README.rst
+
+2015-01-26  rocky <rocky@gnu.org>
+
+	* MANIFEST.in, Makefile, README.md, README.txt: Try with just
+	ReStructuredText README.
+
+2015-01-24  rocky <rb@dustyfeet.com>
+
+	* __pkginfo__.py: We are no longer beta.
+
+2015-01-23  rocky <rb@dustyfeet.com>
+
+	* .python-version: Svg link was to wrong project
+
+2015-01-13  rocky <rocky@gnu.org>
+
+	* __pkginfo__.py: Need to remove NEWS as well
+
 2015-01-13  rocky <rocky@gnu.org>
 
 	* .gitignore, .travis.yml, ChangeLog, MANIFEST.in, Makefile, NEWS,
