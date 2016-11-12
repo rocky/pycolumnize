@@ -1,4 +1,4 @@
-|Downloads| |Build Status| |Latest Version| |Supported Python versions|
+|Linux Build Status| |Windows Build status| |Supported Python Versions|
 
 In showing a long lists, sometimes one would prefer to see the value
 arranged aligned in columns. Some examples include listing methods of an
@@ -106,10 +106,9 @@ Authors: Rocky Bernstein rockyb@rubyforge.org
 
 License: MIT
 
-.. |Downloads| image:: https://pypip.in/download/columnize/badge.svg
-.. |Build Status| image:: https://travis-ci.org/rocky/pycolumnize.svg
+.. |Linux Build Status| image:: https://travis-ci.org/rocky/pycolumnize.svg?label=linux%20build
    :target: https://travis-ci.org/rocky/pycolumnize/
-.. |Latest Version| image:: https://pypip.in/version/columnize/badge.svg?text=version
-   :target: https://pypi.python.org/pypi/columnize/
-.. |Supported Python versions| image:: https://pypip.in/py_versions/columnize/badge.svg
+.. |Windows Build status| image:: https://img.shields.io/appveyor/ci/rocky/pycolumnize/master.svg?label=windows%20build
+   :target: https://ci.appveyor.com/project/rocky/pycolumnize/branch/master
+.. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg
    :target: https://pypi.python.org/pypi/columnize/
