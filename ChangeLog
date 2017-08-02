@@ -1,3 +1,29 @@
+2017-08-01  rocky <rocky@gnu.org>
+
+	* columnize.py, requirements.txt, setup.py: Python 2.4-2.5
+	compatablity
+
+2016-11-12  rocky <rocky@gnu.org>
+
+	* README.rst, appveyor.yml, appveyor/install.ps1,
+	appveyor/run_with_env.cmd: Try appveyor - with build status markers
+
+2016-11-12  rocky <rocky@gnu.org>
+
+	* appveyor.yml, setup.py: Try appveyor
+
+2016-05-05  rocky <rocky@gnu.org>
+
+	* .travis.yml: Nope 3.2 too old and has dependency problems
+
+2016-05-05  rocky <rocky@gnu.org>
+
+	* .travis.yml: No python 3.5 how about 3.2?
+
+2016-05-05  rocky <rocky@gnu.org>
+
+	* .travis.yml: Try python 3.5
+
 2016-03-19  rocky <rocky@gnu.org>
 
 	* ChangeLog, MANIFEST.in, NEWS, THANKS, VERSION.py: Get ready for

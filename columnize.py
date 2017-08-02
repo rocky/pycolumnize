@@ -8,7 +8,11 @@ import os
 try:
     from shutil import get_terminal_size  # Python >= 3.3
 except ImportError:
-    from backports.shutil_get_terminal_size import get_terminal_size
+    try:
+        from backports.shutil_get_terminal_size import get_terminal_size
+    except:
+        def get_terminal_size():
+            return 80
 
 
 def computed_displaywidth():
