@@ -5,14 +5,8 @@ array of strings.
 Adapted from the routine of the same name inside cmd.py"""
 
 import os
-try:
-    from shutil import get_terminal_size  # Python >= 3.3
-except ImportError:
-    try:
-        from backports.shutil_get_terminal_size import get_terminal_size
-    except:
-        def get_terminal_size():
-            return 80
+def get_terminal_size():
+    return 80
 
 
 def computed_displaywidth():
