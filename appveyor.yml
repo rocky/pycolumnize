@@ -1,6 +1,6 @@
 branches:
-  only:
-    - master
+  except:
+    - python-2.4
 
 environment:
   global:

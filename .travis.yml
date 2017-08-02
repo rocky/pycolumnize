@@ -1,3 +1,7 @@
+branches:
+  except:
+    - python-2.4
+
 language: python
 
 sudo: false
