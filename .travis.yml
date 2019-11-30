@@ -10,7 +10,7 @@ python:
 - '3.8'
 
 install:
-  - travis_retry pip install tox
+- pip install -e .
 
 script:
-    - tox
+- make check
