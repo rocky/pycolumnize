@@ -245,6 +245,7 @@ def columnize(array, displaywidth=80, colsep = '  ',
         return s
     pass
 
+
 # Demo it
 if __name__=='__main__':
     # from trepan.api import debug

@@ -26,6 +26,7 @@ setup(
       description        = short_desc,
       license            = license,
       long_description   = long_description,
+      long_description_content_type = "text/x-rst",
       name               = modname,
       test_suite         = 'nose.collector',
       url                = web,

@@ -8,6 +8,7 @@ PHONY=check check-full check3 check-short check-short2 check-short3 clean dist d
 GIT2CL ?= git2cl
 PYTHON ?= python
 PYTHON3 ?= python3
+LINT    = flake8
 
 #: the default target - same as running "check"
 all: check
@@ -45,9 +46,20 @@ dist: README.rst
 sdist: README.rst
 	$(PYTHON) ./setup.py sdist
 
+#: Style check. Set env var LINT to pyflakes, flake, or flake8
+lint: flake8
+
+#: Lint program
+flake8:
+	$(LINT) columnize.py
+
 #: Create binary egg distribution
 bdist_egg: README.rst
 	$(PYTHON) ./setup.py bdist_egg
+
+#: Create binary wheel distribution
+bdist_wheel wheel:
+	$(PYTHON) ./setup.py bdist_wheel
 
 # It is too much work to figure out how to add a new command to distutils
 # to do the following. I'm sure distutils will someday get there.
