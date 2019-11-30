@@ -18,6 +18,9 @@ classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python :: 3.3',
                 'Programming Language :: Python :: 3.4',
                 'Programming Language :: Python :: 3.5 ',
+                'Programming Language :: Python :: 3.6 ',
+                'Programming Language :: Python :: 3.7 ',
+                'Programming Language :: Python :: 3.8 ',
                 ]
 
 # The rest in alphabetic order
@@ -35,6 +38,7 @@ py_modules = [modname]
 import os.path
 exec(compile(open(os.path.join(os.path.dirname(__file__), 'VERSION.py')).read(), os.path.join(os.path.dirname(__file__), 'VERSION.py'), 'exec'))
 
+tests_require = ["mock"]
 web = 'https://github.com/rocky/pycolumnize'
 # tracebacks in zip files are funky and not debuggable
 zip_safe = False

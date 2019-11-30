@@ -9,7 +9,7 @@ from __pkginfo__ import \
     author,           author_email,       classifiers,      ftp_url,      \
     license,          long_description,   mailing_list,                   \
     modname,          py_modules,                                         \
-    short_desc,       VERSION, web, zip_safe
+    short_desc,       tests_require,      VERSION, web, zip_safe
 
 from setuptools import setup
 
@@ -32,6 +32,7 @@ setup(
       version            = VERSION,
       py_modules         = py_modules,
       install_requires   = install_requires,
+      tests_require      = tests_require,
       setup_requires     = ['nose>=1.0'],
       zip_safe           = zip_safe
       )
