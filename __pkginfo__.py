@@ -27,7 +27,7 @@ classifiers =  ['Development Status :: 5 - Production/Stable',
 author       = "Rocky Bernstein"
 author_email = "rocky@gnu.org"
 ftp_url      = None
-license      = 'PSF2'
+license      = 'MIT'
 mailing_list = None
 modname      = 'columnize'
 
