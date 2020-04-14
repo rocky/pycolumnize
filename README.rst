@@ -101,12 +101,12 @@ of the same name from Python's
 `cmd <http://docs.python.org/library/cmd.html>`__ module. Some
 adjustments and generalizations have been made.
 
-pycdio for enterprise
-=====================
+pycolumnize for enterprise
+==========================
 
 Available as part of the Tidelift Subscription.
 
-The maintainers of pycdio and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. `Learn more. <https://tidelift.com/subscription/pkg/pypi-pycdio?utm_source=pypi-pycdio&utm_medium=referral&utm_campaign=readme>`_
+The maintainers of pycolumnize and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. `Learn more. <https://tidelift.com/subscription/pkg/pypi-columnize?utm_source=pypi-columnize&utm_medium=referral&utm_campaign=enterprise&utm_term=repo>`_
 
 Security contact information
 ============================
