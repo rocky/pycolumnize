@@ -8,8 +8,12 @@ import os
 try:
     from shutil import get_terminal_size  # Python >= 3.3
 except ImportError:
-    from backports.shutil_get_terminal_size import get_terminal_size
+    try:
+        from backports.shutil_get_terminal_size import get_terminal_size
+    except:
+        pass
 
+DEFAULT_WIDTH = 80
 
 def computed_displaywidth():
     '''Figure out a reasonable default with. Use os.environ['COLUMNS'] if possible,
@@ -18,9 +22,12 @@ def computed_displaywidth():
     try:
         width = int(os.environ['COLUMNS'])
     except (KeyError, ValueError):
-        width = get_terminal_size().columns
+        try:
+            width = get_terminal_size().columns
+        except:
+            width = DEFAULT_WIDTH
 
-    return width or 80
+    return width or DEFAULT_WIDTH
 
 
 default_opts = {

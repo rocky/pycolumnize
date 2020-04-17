@@ -16,7 +16,7 @@ from setuptools import setup
 install_requires = []
 
 import sys
-if sys.version_info < (3, 3):
+if (2,6) <= sys.version_info < (3, 3):
     install_requires.append('backports.shutil_get_terminal_size')
 
 setup(

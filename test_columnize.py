@@ -8,7 +8,7 @@ if top_builddir[-1] != os.path.sep:
     top_builddir += os.path.sep
 sys.path.insert(0, top_builddir)
 
-from columnize import columnize, computed_displaywidth
+from columnize import columnize
 
 class TestColumize(unittest.TestCase):
 
@@ -160,16 +160,19 @@ class TestColumize(unittest.TestCase):
                                   opts={'lineprefix': '>>>',
                                          'displaywidth': 9}))
 
-    @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
-    def test_computed_displaywidth_environ_COLUMNS_set(self):
-        width = computed_displaywidth()
-        self.assertEqual(width, 87)
+    if sys.version_info[:2] >= (3, 6):
 
-    def test_errors(self):
-        """Test various error conditions."""
-        self.assertRaises(TypeError, columnize, 5, 'reject input - not array')
-        return
-    pass
+        @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
+        def test_computed_displaywidth_environ_COLUMNS_set(self):
+            from columnize import computed_displaywidth
+            width = computed_displaywidth()
+            self.assertEqual(width, 87)
+
+        def test_errors(self):
+            """Test various error conditions."""
+            self.assertRaises(TypeError, columnize, 5, 'reject input - not array')
+            return
+        pass
 
 if __name__ == '__main__':
     unittest.main()
