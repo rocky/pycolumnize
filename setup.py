@@ -16,6 +16,7 @@ from __pkginfo__ import (
     modname,
     py_modules,
     short_desc,
+    test_requires,
     web,
 )
 
@@ -40,6 +41,7 @@ setup(
     name=modname,
     packages=find_packages(),
     py_modules=py_modules,
+    test_requires=test_requires,
     url=web,
     version=__version__,
 )

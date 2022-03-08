@@ -46,7 +46,7 @@ modname = "columnize"
 
 short_desc = "Format a simple (i.e. not nested) list into aligned columns."
 py_modules = [modname]
-
+test_requires = ["pytest"]
 web = "https://github.com/rocky/pycolumnize"
 
 readme = "README.txt"
