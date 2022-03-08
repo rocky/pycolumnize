@@ -13,26 +13,9 @@ LINT    = flake8
 #: the default target - same as running "check"
 all: check
 
-#: Run all tests with several Python versions via tox
-check-full:
-	tox
-
-#: Run all tests with several Python versions via tox, minimum output
-check-full-short:
-	tox -- --quiet | \
-  $(PYTHON) ./make-check-filter.py
-
 #: Run tests (one version of Python)
 check:
-	$(PYTHON) ./setup.py nosetests
-
-check-short:
-	$(PYTHON) ./setup.py nosetests --quiet | \
-	$(PYTHON) ./make-check-filter.py
-#
-# check-short3:
-# 	$(PYTHON3) ./setup.py nosetests --quiet | \
-# 	$(PYTHON3) ./make-check-filter.py
+	pytest test
 
 #: Clean up temporary files
 clean:
