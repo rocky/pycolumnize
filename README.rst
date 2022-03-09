@@ -1,4 +1,4 @@
-|Linux Build Status| |Pypi Installs| |Windows Build status| |Supported Python Versions|
+|Pypi Installs| |Supported Python Versions|
 
 |packagestatus|
 
@@ -120,10 +120,6 @@ Authors: Rocky Bernstein rb@dustyfeet.com
 
 License: MIT
 
-.. |Linux Build Status| image:: https://travis-ci.org/rocky/pycolumnize.svg?label=linux%20build
-   :target: https://travis-ci.org/rocky/pycolumnize/
-.. |Windows Build status| image:: https://img.shields.io/appveyor/ci/rocky/pycolumnize/master.svg?label=windows%20build
-   :target: https://ci.appveyor.com/project/rocky/pycolumnize/branch/master
 .. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg
    :target: https://pypi.python.org/pypi/columnize/
 .. |Pypi Installs| image:: https://pepy.tech/badge/columnize
