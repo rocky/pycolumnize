@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- Python -*-
 "Unit test for Columnize"
+import pytest
 import sys
+
+from unittest import mock
 
 from columnize import columnize
 
@@ -174,17 +177,17 @@ def test_lineprefix_just_wide_enough():
 
 if sys.version_info[:2] >= (3, 6):
 
-#     @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
-#     def test_computed_displaywidth_environ_COLUMNS_set():
-#         from columnize import computed_displaywidth
-#         width = computed_displaywidth()
-#         assert (width, 87)
+    @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
+    def test_computed_displaywidth_environ_COLUMNS_set():
+        from columnize import computed_displaywidth
+        width = computed_displaywidth()
+        assert width == 87
 
-#     def test_errors(self):
-#         """Test various error conditions."""
-#         self.assertRaises(TypeError, columnize, 5, 'reject input - not array')
-#         return
-    pass
+def test_errors():
+    """Test various error conditions."""
+    with pytest.raises(TypeError):
+         columnize(5)
+    return
 
 if __name__ == "__main__":
     test_basic()
