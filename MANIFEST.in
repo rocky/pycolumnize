@@ -1,7 +1,9 @@
 include Makefile
+include ChangeLog
 include README.rst
 include NEWS.md
 include THANKS
 include LICENSE
 include __pkginfo__.py
-include VERSION.py
+recursive-include xdis *.py
+recursive-include test *.py
