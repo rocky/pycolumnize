@@ -1,3 +1,14 @@
+0.3.11 2020-04-16
+=================
+
+Revise for modern Python project organization and practice:
+* store source-code module in a directory
+* black files
+* use pytest
+* use `__version__` for version number
+* start using github workflows
+
+
 0.3.10 2020-04-16
 =================
 
