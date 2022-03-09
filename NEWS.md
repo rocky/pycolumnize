@@ -1,4 +1,4 @@
-0.3.11 2020-04-16
+0.3.11 2022-03-xx
 =================
 
 Revise for modern Python project organization and practice:
@@ -7,6 +7,7 @@ Revise for modern Python project organization and practice:
 * use pytest
 * use `__version__` for version number
 * start using github workflows
+* Bundle tests into tarball
 
 
 0.3.10 2020-04-16
