@@ -23,26 +23,22 @@ clean:
 
 #: Create source (tarball) and binary (egg) distribution
 dist: README.rst
-	$(PYTHON) ./setup.py sdist bdist
+	$(PYTHON) -m build
 
 #: Create source tarball
 sdist: README.rst
-	$(PYTHON) ./setup.py sdist
+	$(PYTHON) -m build --sdist
 
 #: Style check. Set env var LINT to pyflakes, flake, or flake8
 lint: flake8
 
 #: Lint program
 flake8:
-	$(LINT) columnize.py
+	$(LINT) columnize
 
 #: Create binary egg distribution
 bdist_egg: README.rst
 	$(PYTHON) ./setup.py bdist_egg
-
-#: Create binary wheel distribution
-bdist_wheel wheel:
-	$(PYTHON) ./setup.py bdist_wheel
 
 # It is too much work to figure out how to add a new command to distutils
 # to do the following. I'm sure distutils will someday get there.
