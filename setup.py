@@ -4,34 +4,38 @@ distutils setup (setup.py)
 
 This gets a bit of package info from __pkginfo__.py file
 """
+from setuptools import find_packages
 # Get the required package information
-from __pkginfo__ import \
-    author,           author_email,       classifiers,       \
-    license,          long_description,                      \
-    modname,          py_modules,                            \
-    short_desc,       VERSION, web, zip_safe
+from __pkginfo__ import (
+    __version__,
+    author,
+    author_email,
+    classifiers,
+    license,
+    long_description,
+    modname,
+    py_modules,
+    short_desc,
+    web,
+)
 
 from setuptools import setup
 
 install_requires = []
-
-import sys
-if (2,6) <= sys.version_info < (3, 3):
-    install_requires.append('backports.shutil_get_terminal_size')
 
 setup(
       author             = author,
       author_email       = author_email,
       classifiers        = classifiers,
       description        = short_desc,
+      install_requires   = install_requires,
       license            = license,
       long_description   = long_description,
       name               = modname,
-      test_suite         = 'nose.collector',
-      url                = web,
-      version            = VERSION,
+      packages=find_packages(),
       py_modules         = py_modules,
-      install_requires   = install_requires,
       setup_requires     = ['nose>=1.0'],
-      zip_safe           = zip_safe
+      test_suite         = "nose.collector",
+      url                = web,
+      version            = __version__,
       )
