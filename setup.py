@@ -19,6 +19,14 @@ from __pkginfo__ import (
     web,
 )
 
+import sys
+if sys.version_info[:2] == (3, 0):
+    setup_requires = []
+    test_suite = None
+else:
+    setup_requires = ["nose>=1.0"]
+    test_suite = "nose.collector"
+
 from setuptools import setup
 
 install_requires = []
@@ -34,8 +42,8 @@ setup(
       name               = modname,
       packages=find_packages(),
       py_modules         = py_modules,
-      setup_requires     = ['nose>=1.0'],
-      test_suite         = "nose.collector",
+      setup_requires     = setup_requires,
+      test_suite         = test_suite,
       url                = web,
       version            = __version__,
       )
