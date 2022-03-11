@@ -1,11 +1,11 @@
 *.bak
 .coverage
 .eggs/
+*.pyc
+*~
 .python-version
 /*.egg
 /*.egg-info
-/*.pyc
-/*~
 /.cache
 /.tox
 /build
