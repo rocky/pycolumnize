@@ -1,4 +1,4 @@
-0.3.11 2022-03-xx
+0.3.11 2022-03-11
 =================
 
 Revise for modern Python project organization and practice:
