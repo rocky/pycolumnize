@@ -5,5 +5,15 @@ include NEWS.md
 include THANKS
 include LICENSE
 include __pkginfo__.py
+exclude .editorconfig
+exclude .coveragerc
+exclude .gitignore
+exclude .pre-commit-config.yaml
+recursive-exclude .git *
+recursive-exclude .github *
+recursive-exclude .gitignore
+recursive-exclude __pycache__ *
+recursive-exclude admin-tools *
+recursive-exclude admin-tools *
 recursive-include columnize *.py
 recursive-include test *.py
