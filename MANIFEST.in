@@ -5,5 +5,5 @@ include NEWS.md
 include THANKS
 include LICENSE
 include __pkginfo__.py
-recursive-include xdis *.py
+recursive-include columnize *.py
 recursive-include test *.py
