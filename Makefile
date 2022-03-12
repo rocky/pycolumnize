@@ -4,25 +4,25 @@
 # These comments before the targets start with #:
 # remake --tasks to shows the targets and the comments
 
-PHONY=check check-full check3 check-short check-short2 check-short3 clean dist distclean test
+PHONY=check check-3.0 check-3.1 check-3.2 check-3.3 check-3.4 check-3.5 check-full check3 check-short check-short2 check-short3 clean dist distclean test
 GIT2CL ?= git2cl
 PYTHON ?= python
 PYTHON3 ?= python3
+LINT    = flake8
+
+PYTHON_VERSION = $(shell $(PYTHON) -V 2>&1 | cut -d ' ' -f 2 | cut -d'.' -f1,2 | head -1)
 
 #: the default target - same as running "check"
 all: check
 
-#: Run all tests with several Python versions via tox
-check-full:
-	tox
-
-#: Run all tests with several Python versions via tox, minimum output
-check-full-short:
-	tox -- --quiet | \
-  $(PYTHON) ./make-check-filter.py
-
 #: Run tests (one version of Python)
 check:
+	$(MAKE) check-${PYTHON_VERSION}
+
+check-3.0:
+	$(PYTHON) test/test_columnize.py
+
+check-3.1 check-3.2 check-3.3 check-3.4 check-3.5:
 	$(PYTHON) ./setup.py nosetests
 
 check-short:
@@ -39,11 +39,18 @@ clean:
 
 #: Create source (tarball) and binary (egg) distribution
 dist: README.rst
-	$(PYTHON) ./setup.py sdist bdist
+	$(PYTHON) -m build
 
 #: Create source tarball
 sdist: README.rst
-	$(PYTHON) ./setup.py sdist
+	$(PYTHON) -m build --sdist
+
+#: Style check. Set env var LINT to pyflakes, flake, or flake8
+lint: flake8
+
+#: Lint program
+flake8:
+	$(LINT) columnize
 
 #: Create binary egg distribution
 bdist_egg: README.rst

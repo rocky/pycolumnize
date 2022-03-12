@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 # -*- Python -*-
 "Unit test for Columnize"
-import mock, operator, os, sys, unittest
+import os, sys, unittest, operator, unittest
 
-top_builddir = os.path.join(os.path.dirname(__file__), os.path.pardir)
-if top_builddir[-1] != os.path.sep:
-    top_builddir += os.path.sep
-sys.path.insert(0, top_builddir)
+try:
+    from mock.patch import patch as patch_dict
+except ImportError:
+    def patch_dict(*args, **kwargs):
+        def wrapper(*args, **kwargs):
+            return wrapper
+
+        return wrapper(*args, **kwargs)
 
 from columnize import columnize, computed_displaywidth
 
@@ -160,7 +164,7 @@ class TestColumize(unittest.TestCase):
                                   opts={'lineprefix': '>>>',
                                          'displaywidth': 9}))
 
-    @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
+    @patch_dict('os.environ', {'COLUMNS': '87'}, clear=True)
     def test_computed_displaywidth_environ_COLUMNS_set(self):
         width = computed_displaywidth()
         self.assertEqual(width, 87)
