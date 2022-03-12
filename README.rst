@@ -13,7 +13,7 @@ aligned columns. A string with embedded newline characters is returned.
 Setup
 -----
 
-.. code:: python
+
 
     $ python
     >>> import columnize
@@ -26,7 +26,7 @@ separated by two spaces; one was not legible enough. Set *colsep* to
 adjust the string separate columns. Set *displaywidth* to set the line
 width.
 
-.. code:: python
+..
 
     >>> g = ('bibrons', 'golden', 'madascar', 'leopard', 'mourning', 'suras', 'tokay')
     >>> print(columnize.columnize(g, displaywidth=15))
@@ -55,7 +55,7 @@ consecutive items will go across, left to right, top to bottom.
 With numeric data
 -----------------
 
-.. code:: python
+..
 
     >>> print(columnize.columnize(['1', '2', '3', '4'], displaywidth=6)) # => '1  3\n2  4\n'
     1  3
@@ -67,7 +67,7 @@ With numeric data
 
 By default entries are left justified:
 
-.. code:: python
+..
 
     >>>  print(columnize.columnize(list(range(1,16)), displaywidth=10))
 
@@ -80,7 +80,7 @@ By default entries are left justified:
 but you can change that with *ljust* or if *arrange\_array* is set to
 *True*:
 
-.. code:: python
+..
 
     >>>  print(columnize.columnize(list(range(1,16)), displaywidth=10, ljust=False))
     1   6  11
@@ -120,8 +120,6 @@ Authors: Rocky Bernstein rb@dustyfeet.com
 
 License: MIT
 
-.. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg
-   :target: https://pypi.python.org/pypi/columnize/
+.. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg :target: https://pypi.python.org/pypi/columnize/
 .. |Pypi Installs| image:: https://pepy.tech/badge/columnize
-.. |packagestatus| image:: https://repology.org/badge/vertical-allrepos/python:columnize.svg
-		 :target: https://repology.org/project/python:columnize/versions
+.. |packagestatus| image:: https://repology.org/badge/vertical-allrepos/python:columnize.svg :target: https://repology.org/project/python:columnize/versions
