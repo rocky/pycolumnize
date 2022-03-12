@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#  Copyright (C) 2015 Rocky Bernstein <rocky@gnu.org>
+#  Copyright (C) 2015, 2020 Rocky Bernstein <rocky@gnu.org>
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or
@@ -12,7 +12,7 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"""
+r"""
 |Downloads| |Build Status| |Latest Version| |Supported Python versions|
 
 In showing a long lists, sometimes one would prefer to see the value
@@ -110,7 +110,7 @@ Credits
 -------
 
 This module (essentially one function) was adapted from a private method
-of the same name from Python’s
+of the same name from Python s
 `cmd <http://docs.python.org/library/cmd.html>`__ module. Some
 adjustments and generalizations have been made.
 
@@ -128,5 +128,6 @@ License: MIT
    :target: https://pypi.python.org/pypi/columnize/
 .. |Supported Python versions| image:: https://pypip.in/py_versions/columnize/badge.svg
    :target: https://pypi.python.org/pypi/columnize/
+
 """
-__docformat__ = 'restructuredtext'
+__docformat__ = "restructuredtext"
