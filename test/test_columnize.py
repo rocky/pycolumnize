@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- Python -*-
 "Unit test for Columnize"
-import pytest
 import sys
-
 from unittest import mock
+
+import pytest
 
 from columnize import columnize
 

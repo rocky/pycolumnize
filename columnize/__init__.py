@@ -13,8 +13,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 __docformat__ = "restructuredtext"
-from columnize.version import __version__  # noqa
 from columnize.__main__ import columnize, computed_displaywidth  # noqa
-
+from columnize.version import __version__  # noqa
 
 __all__ = ["__version__", "columnize", "computed_displaywidth"]
