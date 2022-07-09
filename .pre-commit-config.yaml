@@ -2,7 +2,8 @@ default_language_version:
   python: python
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.0.0
+    rev: 1.4.0
+    sha: 219c70a9c1e8a946d3835974369d08f3ff5a00ec
     hooks:
     - id: check-merge-conflict
     - id: debug-statements
@@ -10,6 +11,7 @@ repos:
     - id: end-of-file-fixer
       stages: [commit]
 -   repo: https://github.com/pycqa/flake8
+    sha: c6e0d27593a45342ffa96a18bba708a5aab32fd
     rev: 3.9.2
     hooks:
       - id: flake8
