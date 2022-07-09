@@ -268,6 +268,7 @@ def columnize(
 if __name__ == "__main__":
     # from trepan.api import debug
     # debug()
+    from typing import List, Tuple, Union
     print(columnize(list(range(12)), opts={"displaywidth": 6, "arrange_array": True}))
     print(columnize(list(range(12)), opts={"displaywidth": 10, "arrange_array": True}))
     for t in (
@@ -365,7 +366,7 @@ if __name__ == "__main__":
     try:
         print(columnize(5))
     except TypeError:
-        _, err, _ = sys.exc_info()
+        err = sys.exc_info()[1]
         print(err)
         pass
 
