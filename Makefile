@@ -8,6 +8,7 @@ PHONY=check check-full check3 check-short check-short2 check-short3 clean dist d
 GIT2CL ?= git2cl
 PYTHON ?= python
 PYTHON3 ?= python3
+RM ?= rm
 LINT    = flake8
 
 #: the default target - same as running "check"
@@ -20,6 +21,7 @@ check:
 #: Clean up temporary files
 clean:
 	$(PYTHON) ./setup.py $@
+	$(RM) *.so */*.so || /bin/true
 
 #: Create source (tarball) and binary (egg) distribution
 dist: README.rst
@@ -28,6 +30,14 @@ dist: README.rst
 #: Create source tarball
 sdist: README.rst
 	$(PYTHON) -m build --sdist
+
+#: Run mypy
+mypy:
+	mypy columnize
+
+#: Run mypyc
+mypyc: mypy
+	mypyc columnize
 
 #: Style check. Set env var LINT to pyflakes, flake, or flake8
 lint: flake8
