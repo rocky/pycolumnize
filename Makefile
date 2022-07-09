@@ -23,8 +23,8 @@ check:
 check-3.0 check-2.4 check-2.5 check-2.6 check-2.7:
 	$(PYTHON) test/test_columnize.py
 
-# check-3.1 check-3.2 check-3.3 check-3.4 check-3.5 check-3.6 check-3.7 check-3.8 check-3.9:
-# 	$(PYTHON) ./setup.py nosetests
+check-3.1 check-3.2 check-3.3 check-3.4 check-3.5 check-3.6 check-3.7 check-3.8 check-3.9:
+	$(PYTHON) ./setup.py nosetests
 
 check-short:
 	$(PYTHON) ./setup.py nosetests --quiet | \
