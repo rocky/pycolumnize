@@ -6,10 +6,13 @@ Adapted from the routine of the same name inside cmd.py"""
 
 import os
 
-# Python >= 3.3
-# older Python's use
-# from backports.shutil_get_terminal_size import get_terminal_size
-from shutil import get_terminal_size
+try:
+    from shutil import get_terminal_size  # Python >= 3.3
+except ImportError:
+    try:
+        from backports.shutil_get_terminal_size import get_terminal_size
+    except:  # noqa
+        pass
 
 DEFAULT_WIDTH = 80
 
@@ -277,7 +280,7 @@ if __name__ == "__main__":
         (100, 80),
     ):
         width = t[1]
-        data: Union[List, Tuple] = [str(i) for i in range(t[0])]
+        data = [str(i) for i in range(t[0])]
         options = {}
         for t2 in (
             (
