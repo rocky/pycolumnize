@@ -13,7 +13,7 @@ repos:
     rev: 22.6.0
     hooks:
     - id: black
-      language_version: python3
+      language_version: python
       stages: [commit]
       additional_dependencies: ["click"]
 -   repo: https://github.com/pycqa/flake8
