@@ -1,8 +1,9 @@
 *.bak
+*.pyc
+*.so
+*~
 .coverage
 .eggs/
-*.pyc
-*~
 .python-version
 /*.egg
 /*.egg-info
