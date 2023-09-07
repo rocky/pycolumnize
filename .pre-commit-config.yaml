@@ -9,17 +9,5 @@ repos:
     sha: c6e0d27593a45342ffa96a18bba708a5aab32fd
     rev: 3.9.2
     hooks:
-=======
--   repo: https://github.com/psf/black
-    rev: 22.6.0
-    hooks:
-    - id: black
-      language_version: python
-      stages: [commit]
-      additional_dependencies: ["click"]
--   repo: https://github.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
->>>>>>> master
       - id: flake8
         stages: [commit]
