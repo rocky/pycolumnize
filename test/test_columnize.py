@@ -178,7 +178,7 @@ def test_lineprefix_just_wide_enough():
 if sys.version_info[:2] >= (3, 6):
 
     @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
-    def test_computed_displaywidth_environ_COLUMNS_set():
+    def test_computed_displaywidth_environ_columns_set():
         from columnize import computed_displaywidth
         width = computed_displaywidth()
         assert width == 87
