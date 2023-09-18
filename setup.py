@@ -7,9 +7,18 @@ This gets a bit of package info from __pkginfo__.py file
 # Get the required package information
 from setuptools import find_packages, setup
 
-from __pkginfo__ import (__version__, author, author_email, classifiers,
-                         license, long_description, modname, py_modules,
-                         short_desc, web)
+from __pkginfo__ import (
+    __version__,
+    author,
+    author_email,
+    classifiers,
+    pkg_license,
+    long_description,
+    modname,
+    py_modules,
+    short_desc,
+    web,
+)
 
 setup(
     author=author,
@@ -17,7 +26,7 @@ setup(
     classifiers=classifiers,
     description=short_desc,
     install_requires=[],
-    license=license,
+    license=pkg_license,
     long_description=long_description,
     long_description_content_type="text/x-rst",
     name=modname,

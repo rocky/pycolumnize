@@ -3,8 +3,8 @@
 import os.path as osp
 
 # Things that change more often go here.
-copyright = """
-Copyright (C) 2008-2010, 2013, 2015, 2020, 2022 Rocky Bernstein <rocky@gnu.org>.
+pkg_copyright = """
+Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2023 Rocky Bernstein <rocky@gnu.org>.
 """
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -43,7 +43,7 @@ exec(read("columnize/version.py"))
 # The rest in alphabetic order
 author = "Rocky Bernstein"
 author_email = "rocky@gnu.org"
-license = "MIT"
+pkg_license = "MIT"
 modname = "columnize"
 
 short_desc = "Format a simple (i.e. not nested) list into aligned columns."
