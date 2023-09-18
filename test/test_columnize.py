@@ -177,17 +177,20 @@ def test_lineprefix_just_wide_enough():
 
 if sys.version_info[:2] >= (3, 6):
 
-    @mock.patch.dict('os.environ', {'COLUMNS': '87'}, clear=True)
+    @mock.patch.dict("os.environ", {"COLUMNS": "87"}, clear=True)
     def test_computed_displaywidth_environ_columns_set():
         from columnize import computed_displaywidth
+
         width = computed_displaywidth()
         assert width == 87
+
 
 def test_errors():
     """Test various error conditions."""
     with pytest.raises(TypeError):
-         columnize(5)
+        columnize(5)
     return
+
 
 if __name__ == "__main__":
     test_basic()
