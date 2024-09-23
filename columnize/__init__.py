@@ -117,7 +117,7 @@ adjustments and generalizations have been made.
 Other stuff
 -----------
 
-Authors: Rocky Bernstein rockyb@rubyforge.org
+Authors: Rocky Bernstein rb@dustyfeet.com
 
 License: MIT
 
