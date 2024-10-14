@@ -36,4 +36,3 @@ setup(
     url=web,
     version=__version__,
 )
->>>>>>> python-3.6-to-3.10
