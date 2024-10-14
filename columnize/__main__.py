@@ -58,7 +58,7 @@ def columnize(
     arrange_vertical=True,
     ljust=True,
     lineprefix="",
-    opts={},
+    opts=None,
 ):
     """Return a list of strings as a compact set of columns arranged
     horizontally or vertically.
@@ -78,6 +78,8 @@ def columnize(
     the left-most column to the right-most. If "arrange_vertical" is
     set false, consecutive items will go across, left to right, top to
     bottom."""
+    if opts is None:
+        opts = {}
     if not isinstance(array, (list, tuple)):
         raise TypeError(("array needs to be an instance of a list or a tuple"))
 

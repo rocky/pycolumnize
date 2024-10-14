@@ -1,4 +1,4 @@
-|Linux Build Status| |Pypi Installs| |Windows Build status| |Supported Python Versions|
+|Pypi Installs| |Supported Python Versions|
 
 |packagestatus|
 
@@ -101,19 +101,25 @@ of the same name from Python's
 `cmd <http://docs.python.org/library/cmd.html>`__ module. Some
 adjustments and generalizations have been made.
 
+pycolumnize for enterprise
+==========================
+
+Available as part of the Tidelift Subscription.
+
+The maintainers of pycolumnize and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. `Learn more. <https://tidelift.com/subscription/pkg/pypi-columnize?utm_source=pypi-columnize&utm_medium=referral&utm_campaign=enterprise&utm_term=repo>`_
+
+Security contact information
+============================
+
+To report a security vulnerability, please use the `Tidelift security contact <https://tidelift.com/security>`_ and Tidelift will coordinate the fix and disclosure.
+
 Other stuff
 -----------
 
-Authors: Rocky Bernstein rockyb@rubyforge.org
+Authors: Rocky Bernstein rb@dustyfeet.com
 
 License: MIT
 
-.. |Linux Build Status| image:: https://travis-ci.org/rocky/pycolumnize.svg?label=linux%20build
-   :target: https://travis-ci.org/rocky/pycolumnize/
-.. |Windows Build status| image:: https://img.shields.io/appveyor/ci/rocky/pycolumnize/master.svg?label=windows%20build
-   :target: https://ci.appveyor.com/project/rocky/pycolumnize/branch/master
-.. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg
-   :target: https://pypi.python.org/pypi/columnize/
+.. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg :target: https://pypi.python.org/pypi/columnize/
 .. |Pypi Installs| image:: https://pepy.tech/badge/columnize
-.. |packagestatus| image:: https://repology.org/badge/vertical-allrepos/python:columnize.svg
-		 :target: https://repology.org/project/python:columnize/versions
+.. |packagestatus| image:: https://repology.org/badge/vertical-allrepos/python:columnize.svg :target: https://repology.org/project/python:columnize/versions
