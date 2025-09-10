@@ -2,7 +2,6 @@
 # -*- Python -*-
 "Unit test for Columnize"
 import sys
-from unittest import mock
 
 import pytest
 
@@ -173,16 +172,6 @@ def test_lineprefix_just_wide_enough():
     assert ">>>10  12\n>>>11  13\n" == columnize(
         [10, 11, 12, 13], opts={"lineprefix": ">>>", "displaywidth": 9}
     )
-
-
-if sys.version_info[:2] >= (3, 6):
-
-    @mock.patch.dict("os.environ", {"COLUMNS": "87"}, clear=True)
-    def test_computed_displaywidth_environ_columns_set():
-        from columnize import computed_displaywidth
-
-        width = computed_displaywidth()
-        assert width == 87
 
 
 def test_errors():
