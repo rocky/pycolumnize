@@ -12,7 +12,7 @@ from __pkginfo__ import (
     author,
     author_email,
     classifiers,
-    pkg_license,
+    license,
     long_description,
     modname,
     py_modules,
