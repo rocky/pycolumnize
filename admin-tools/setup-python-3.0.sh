@@ -1,5 +1,6 @@
 #!/bin/bash
-PYTHON_VERSION=3.0.1
+# Check out 3.3-to-3.5 branch and dependant development branches
+PYTHON_VERSION=3.0
 
 if [[ $0 == $${BASH_SOURCE[0]} ]] ; then
     echo "This script should be *sourced* rather than run directly through bash"

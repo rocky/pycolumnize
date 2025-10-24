@@ -8,6 +8,7 @@ PHONY=check check-3.0 check-3.1 check-3.2 check-3.3 check-3.4 check-3.5 check-fu
 GIT2CL ?= git2cl
 PYTHON ?= python
 PYTHON3 ?= python3
+RM ?= rm
 LINT    = flake8
 
 PYTHON_VERSION = $(shell $(PYTHON) -V 2>&1 | cut -d ' ' -f 2 | cut -d'.' -f1,2 | head -1)
@@ -36,6 +37,7 @@ check-short:
 #: Clean up temporary files
 clean:
 	$(PYTHON) ./setup.py $@
+	$(RM) *.so */*.so || /bin/true
 
 #: Create source (tarball) and binary (egg) distribution
 dist: README.rst
@@ -44,6 +46,14 @@ dist: README.rst
 #: Create source tarball
 sdist: README.rst
 	$(PYTHON) -m build --sdist
+
+#: Run mypy
+mypy:
+	mypy columnize
+
+#: Run mypyc
+mypyc: mypy
+	mypyc columnize
 
 #: Style check. Set env var LINT to pyflakes, flake, or flake8
 lint: flake8

@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
-from columnize import columnize
 from random import randint
+
+from columnize import columnize
 
 lst = []
 for i in range(200):

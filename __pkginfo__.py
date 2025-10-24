@@ -1,29 +1,44 @@
 """packaging information"""
 # Things that change more often go here.
-copyright   = '''
-Copyright (C) 2008-2010, 2013, 2015, 2022 Rocky Bernstein <rocky@gnu.org>.
-'''
-classifiers =  ['Development Status :: 5 - Production/Stable',
-                'Intended Audience :: Developers',
-                'License :: OSI Approved :: Python Software Foundation License',
-                'Programming Language :: Python',
-                'Topic :: Software Development :: Libraries :: Python Modules',
-                'Programming Language :: Python :: 2.4',
-                'Programming Language :: Python :: 2.5',
-                'Programming Language :: Python :: 2.6',
-                'Programming Language :: Python :: 2.7',
-                'Programming Language :: Python :: 3.0',
-                'Programming Language :: Python :: 3.1',
-                'Programming Language :: Python :: 3.2',
-                'Programming Language :: Python :: 3.3',
-                'Programming Language :: Python :: 3.4',
-                'Programming Language :: Python :: 3.5 ',
-                'Programming Language :: Python :: 3.6 ',
-                'Programming Language :: Python :: 3.7 ',
-                'Programming Language :: Python :: 3.8 ',
-                'Programming Language :: Python :: 3.9 ',
-                'Programming Language :: Python :: 3.10 ',
-                ]
+pkg_copyright = """
+Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2024 Rocky Bernstein <rocky@gnu.org>.
+"""
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 2.4",
+    "Programming Language :: Python :: 2.5",
+    "Programming Language :: Python :: 2.6",
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3.1",
+    "Programming Language :: Python :: 3.2",
+    "Programming Language :: Python :: 3.3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12 ",
+    "Programming Language :: Python :: 3.13 ",
+]
+
+
+def get_srcdir():
+    filename = osp.normcase(osp.dirname(osp.abspath(__file__)))
+    return osp.realpath(filename)
+
+
+def read(*rnames):
+    return open(osp.join(get_srcdir(), *rnames)).read()
+
+
+exec(read("columnize/version.py"))
 
 # The rest in alphabetic order
 author       = "Rocky Bernstein"

@@ -5,5 +5,9 @@ include NEWS.md
 include THANKS
 include LICENSE
 include __pkginfo__.py
+exclude .editorconfig
+exclude .coveragerc
+exclude .gitignore
+exclude .pre-commit-config.yaml
 recursive-include columnize *.py
 recursive-include test *.py

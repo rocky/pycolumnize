@@ -124,4 +124,4 @@ License: MIT
    :target: https://pypi.python.org/pypi/columnize/
 .. |Pypi Installs| image:: https://pepy.tech/badge/columnize
 .. |packagestatus| image:: https://repology.org/badge/vertical-allrepos/python:columnize.svg
-		 :target: https://repology.org/project/python:columnize/versions
+                 :target: https://repology.org/project/python:columnize/versions
