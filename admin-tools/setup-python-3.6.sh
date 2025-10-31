@@ -14,11 +14,5 @@ pytracer_owd=$(pwd)
 mydir=$(dirname $bs)
 cd $mydir
 . ./checkout_common.sh
-(cd $fulldir/.. && \
-     setup_version python-uncompyle6 master && \
-     setup_version python-filecache master && \
-     setup_version pycolumnize master && \
-     setup_version python-xdis python-3.6 \
-    )
 
 checkout_finish python-3.6-to-3.10
