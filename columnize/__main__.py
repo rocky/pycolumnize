@@ -47,7 +47,7 @@ default_opts = {
 }
 
 
-def get_option(key: str, options: Dict[str, Any]) -> Any:
+def get_option(key: str, options: dict):
     return options.get(key, default_opts.get(key))
 
 
@@ -56,7 +56,7 @@ def columnize(
     displaywidth: int = 80,
     colsep: str = "  ",
     arrange_vertical: bool = True,
-    ljust: Optional[bool] = True,
+    ljust = True,
     lineprefix: str = "",
     opts = None,
 ) -> str:
@@ -83,7 +83,7 @@ def columnize(
     if not isinstance(array, (list, tuple)):
         raise TypeError("array needs to be an instance of a list or a tuple")
 
-    o: dict[str, Any] = {}
+    o = {}
     if len(opts.keys()) > 0:
         for key in default_opts.keys():
             o[key] = get_option(key, opts)
@@ -116,7 +116,7 @@ def columnize(
     if 0 == size:
         return "<empty>\n"
     elif size == 1:
-        return f"{o['array_prefix']}{formatted_array[0]}{o['array_suffix']}\n"
+        return "%s%s%s\n" % (o["array_prefix"], str(array[0]), o["array_suffix"])
 
     o["displaywidth"] = max(4, o["displaywidth"] - len(o["lineprefix"]))
     if o["arrange_vertical"]:
@@ -164,7 +164,11 @@ def columnize(
                     texts[col] = texts[col].ljust(colwidths[col])
                 else:
                     texts[col] = texts[col].rjust(colwidths[col])
-            s += f"{o['lineprefix']}{o['colsep'].join(texts)}{o['linesuffix']}"
+            s += "%s%s%s" % (
+                o["lineprefix"],
+                str(o["colsep"].join(texts)),
+                o["linesuffix"],
+            )
         return s
     else:
         def array_index(dim: int, row: int, col: int) -> int:
@@ -230,7 +234,7 @@ def columnize(
                     texts[col] = texts[col].ljust(colwidths[col])
                 else:
                     texts[col] = texts[col].rjust(colwidths[col])
-            s += f"{prefix}{o['colsep'].join(texts)}{o['linesuffix']}"
+            s += "%s%s%s" % (prefix, str(o["colsep"].join(texts)), o["linesuffix"])
             prefix = o["lineprefix"]
         if o["arrange_array"]:
             colsep = o["colsep"].rstrip()

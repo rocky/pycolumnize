@@ -3,11 +3,11 @@
 
 from columnize import __version__, columnize
 
-print(f"Columnize version: {__version__}\n")
+print("Columnize version: %s\n" % __version__)
 
 # 1. Basic formatting (arrange vertically, default separator '  ')
 print("--- 1. Basic Vertical Formatting ---")
-data = [f"Item-{i}" for i in range(1, 13)]
+data = ["Item-%s" % i for i in range(1, 13)]
 result = columnize(data, displaywidth=40)
 print(result)
 
