@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- Python -*-
 "Unit test for Columnize"
+import sys
 from unittest import mock
-
 
 import pytest
 
@@ -175,12 +175,14 @@ def test_lineprefix_just_wide_enough():
     )
 
 
-@mock.patch.dict("os.environ", {"COLUMNS": "87"}, clear=True)
-def test_computed_displaywidth_environ_columns_set():
-    from columnize import computed_displaywidth
+if sys.version_info[:2] >= (3, 6):
 
-    width = computed_displaywidth()
-    assert width == 87
+    @mock.patch.dict("os.environ", {"COLUMNS": "87"}, clear=True)
+    def test_computed_displaywidth_environ_columns_set():
+        from columnize import computed_displaywidth
+
+        width = computed_displaywidth()
+        assert width == 87
 
 
 def test_errors():

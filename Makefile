@@ -16,7 +16,7 @@ all: check
 
 #: Run tests (one version of Python)
 check:
-	pytest test
+	$(PYTHON) -m pytest test
 
 #: Clean up temporary files
 clean:

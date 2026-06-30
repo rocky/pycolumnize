@@ -4,16 +4,19 @@ array of strings.
 
 Adapted from the routine of the same name inside cmd.py"""
 
-from __future__ import annotations
-
 import os
+
+from typing import Any, Dict, List, Optional
+
+# Python >= 3.6 - 3.10
+# older Python's use
+# from backports.shutil_get_terminal_size import get_terminal_size
 from shutil import get_terminal_size
-from typing import Any
 
 DEFAULT_WIDTH = 80
 
 
-def computed_displaywidth() -> int:
+def computed_displaywidth():
     """Figure out a reasonable default with. Use os.environ['COLUMNS'] if possible,
     and failing that use 80.
     """
@@ -22,13 +25,13 @@ def computed_displaywidth() -> int:
     except (KeyError, ValueError):
         try:
             width = get_terminal_size().columns
-        except Exception:
+        except:  # noqa
             width = DEFAULT_WIDTH
 
     return width or DEFAULT_WIDTH
 
 
-default_opts: dict[str, Any] = {
+default_opts = {
     "arrange_array": False,  # Check if file has changed since last time
     "arrange_vertical": True,
     "array_prefix": "",
@@ -43,18 +46,18 @@ default_opts: dict[str, Any] = {
 }
 
 
-def get_option(key: str, options: dict[str, Any]) -> Any:
+def get_option(key: str, options: Dict[str, Any]) -> Any:
     return options.get(key, default_opts.get(key))
 
 
 def columnize(
-    array: list[Any] | tuple[Any, ...],
+    array,
     displaywidth: int = 80,
     colsep: str = "  ",
     arrange_vertical: bool = True,
-    ljust: bool | None = True,
+    ljust: Optional[bool] = True,
     lineprefix: str = "",
-    opts: dict[str, Any] | None = None,
+    opts = None,
 ) -> str:
     """Return a list of strings as a compact set of columns arranged
     horizontally or vertically.
