@@ -8,8 +8,6 @@ if [[ $0 == $bs ]] ; then
     exit 1
 fi
 
-PYTHON_VERSION=3.3
-
 export PATH=$HOME/.pyenv/bin/pyenv:$PATH
 pytracer_owd=$(pwd)
 mydir=$(dirname $bs)
