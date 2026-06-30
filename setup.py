@@ -6,12 +6,14 @@ This gets a bit of package info from __pkginfo__.py file
 """
 from setuptools import find_packages
 # Get the required package information
+from setuptools import find_packages, setup
+
 from __pkginfo__ import (
     __version__,
     author,
     author_email,
     classifiers,
-    license,
+    pkg_license,
     long_description,
     modname,
     py_modules,

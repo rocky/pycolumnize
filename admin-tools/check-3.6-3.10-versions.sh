@@ -1,17 +1,12 @@
 #!/bin/bash
-function finish {
-  cd $owd
-}
 
-# FIXME put some of the below in a common routine
-owd=$(pwd)
-trap finish EXIT
+check_pytracer_36_owd=$(pwd)
 
 cd $(dirname ${BASH_SOURCE[0]})
-if ! source ./pyenv-3.0-3.5-versions ; then
+if ! source ./pyenv-3.6-3.10-versions ; then
     exit $?
 fi
-if ! source ./setup-python-3.0.sh ; then
+if ! source ./setup-python-3.6.sh ; then
     exit $?
 fi
 cd ..
@@ -26,3 +21,4 @@ for version in $PYVERSIONS; do
     fi
     echo === $version ===
 done
+cd $check_pytracer_36_owd

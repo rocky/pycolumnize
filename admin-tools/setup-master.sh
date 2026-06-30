@@ -1,6 +1,5 @@
 #!/bin/bash
-PYTHON_VERSION=3.6.15
-pyenv local $PYTHON_VERSION
+PYTHON_VERSION=3.14
 
 if [[ $0 == $${BASH_SOURCE[0]} ]] ; then
     echo "This script should be *sourced* rather than run directly through bash"
