@@ -45,6 +45,14 @@ dynamic = ["version"]
 [project.urls]
 Homepage = "https://github.com/rocky/pycolumnize"
 
+[project.optional-dependencies]
+dev = [
+    "check-jsonschema",
+    "pre-commit",
+    "pytest",
+    "tox",
+]
+
 [tool.setuptools.dynamic]
 version = {attr = "columnize.version.__version__"}
 
