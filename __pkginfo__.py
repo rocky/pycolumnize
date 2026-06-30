@@ -4,7 +4,7 @@ import os.path as osp
 
 # Things that change more often go here.
 pkg_copyright = """
-Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2024 Rocky Bernstein <rocky@gnu.org>.
+Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2024, 2026 Rocky Bernstein <rocky@gnu.org>.
 """
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -16,6 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 2.5",
     "Programming Language :: Python :: 2.6",
     "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3.0",
     "Programming Language :: Python :: 3.1",
     "Programming Language :: Python :: 3.2",
     "Programming Language :: Python :: 3.3",

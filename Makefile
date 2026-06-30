@@ -16,7 +16,7 @@ all: check
 
 #: Run tests (one version of Python)
 check:
-	pytest test
+	$(PYTHON) -m pytest test
 
 #: Clean up temporary files
 clean:
@@ -25,7 +25,7 @@ clean:
 
 #: Create source (tarball) and binary (egg) distribution
 dist: README.rst
-	$(PYTHON) -m build
+	./admin-tools/make-dist-newest.sh
 
 #: Create source tarball
 sdist: README.rst

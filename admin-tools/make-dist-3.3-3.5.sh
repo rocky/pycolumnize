@@ -1,13 +1,24 @@
 #!/bin/bash
-PACKAGE=columnize
+# The name Python's import uses.
+# It is reflected in the directory structure.
+PACKAGE_MODULE="columnize"
+
+# The name that PyPi sees this as.
+# It is set in setup.py's name.
+PACKAGE_NAME="columnize"
+
+# Both the name an module name agree
+PACKAGE=$PACKAGE_NAME
 
 # FIXME put some of the below in a common routine
 function finish {
-  cd $owd
+  if [[ -n "$make_dist_xdis_36_owd" ]] then
+     cd $columnize_33_owd
+  fi
 }
 
+make_columnize_33_owd=$(pwd)
 cd $(dirname ${BASH_SOURCE[0]})
-owd=$(pwd)
 trap finish EXIT
 
 if ! source ./pyenv-3.3-3.5-versions ; then
@@ -19,10 +30,32 @@ fi
 
 cd ..
 source $PACKAGE/version.py
-echo $VERSION
+if [[ ! -n $__version__ ]]; then
+    echo "Something is wrong: __version__ should have been set."
+    exit 1
+fi
 
 for pyversion in $PYVERSIONS; do
     echo --- $pyversion ---
+    case ${pyversion:0:4} in
+	"graal" )
+	    echo "$pyversion - Graal does not get special packaging"
+	    continue
+	    ;;
+	"jyth" )
+	    echo "$pyversion - Jython does not get special packaging"
+	    continue
+	    ;;
+	"pypy" )
+	    echo "$pyversion - PyPy does not get special packaging"
+	    continue
+	    ;;
+	"pyst" )
+	    echo "$pyversion - Pyston does not get special packaging"
+	    continue
+	    ;;
+    esac
+    echo "*** Packaging ${PACKAGE_NAME} for version ${__version__} on Python ${pyversion} ***"
     if ! pyenv local $pyversion ; then
 	exit $?
     fi
@@ -33,6 +66,16 @@ for pyversion in $PYVERSIONS; do
     first_two=$(echo $pyversion | cut -d'.' -f 1-2 | sed -e 's/\.//')
     rm -fr build
     python setup.py bdist_egg
+    python setup.py bdist_wheel
+    if [[ $first_two =~ py* ]]; then
+	if [[ $first_two =~ pypy* ]]; then
+	    # For PyPy, remove the what is after the dash, e.g. pypy37-none-any.whl instead of pypy37-7-none-any.whl
+	    first_two=${first_two%-*}
+	fi
+	mv -v dist/${PACKAGE}-$__version__-{py3,$first_two}-none-any.whl
+    else
+	mv -v dist/${PACKAGE}-$__version__-{py3,py$first_two}-none-any.whl
+    fi
     echo === $pyversion ===
 done
 
@@ -41,4 +84,6 @@ python ./setup.py sdist
 tarball=dist/${PACKAGE}-${__version__}.tar.gz
 if [[ -f $tarball ]]; then
     mv -v $tarball dist/${PACKAGE}_33-${__version__}.tar.gz
+    twine check $version_specific_tarball
 fi
+finish
