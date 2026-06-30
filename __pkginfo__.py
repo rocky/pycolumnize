@@ -1,7 +1,8 @@
 """packaging information"""
 # Things that change more often go here.
+import os.path as osp
 pkg_copyright = """
-Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2024 Rocky Bernstein <rocky@gnu.org>.
+Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2024, 2026 Rocky Bernstein <rocky@gnu.org>.
 """
 classifiers = [
     "Development Status :: 5 - Production/Stable",

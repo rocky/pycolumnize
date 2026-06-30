@@ -4,7 +4,6 @@ distutils setup (setup.py)
 
 This gets a bit of package info from __pkginfo__.py file
 """
-from setuptools import find_packages
 # Get the required package information
 from setuptools import find_packages, setup
 
@@ -29,8 +28,6 @@ else:
     setup_requires = ["nose>=1.0"]
     test_suite = "nose.collector"
 
-from setuptools import setup
-
 install_requires = []
 
 setup(
@@ -39,7 +36,7 @@ setup(
       classifiers        = classifiers,
       description        = short_desc,
       install_requires   = install_requires,
-      license            = license,
+      license            = pkg_license,
       long_description   = long_description,
       name               = modname,
       packages=find_packages(),
