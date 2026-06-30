@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#  Copyright (C) 2022-2023 Rocky Bernstein <rocky@gnu.org>
+#  Copyright (C) 2022-2023, 2026 Rocky Bernstein <rocky@gnu.org>
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or
