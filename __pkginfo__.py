@@ -55,4 +55,3 @@ readme = "README.txt"
 if osp.exists("README.rst"):
     readme = "README.rst"
 long_description = read(readme) + "\n"
->>>>>>> python-3.3-to-3.5
