@@ -1,7 +1,7 @@
 """packaging information"""
 # Things that change more often go here.
 pkg_copyright = """
-Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2024 Rocky Bernstein <rocky@gnu.org>.
+Copyright (C) 2008-2010, 2013, 2015, 2020, 2022-2024, 2026 Rocky Bernstein <rocky@gnu.org>.
 """
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -13,6 +13,7 @@ classifiers = [
     "Programming Language :: Python :: 2.5",
     "Programming Language :: Python :: 2.6",
     "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3.0",
     "Programming Language :: Python :: 3.1",
     "Programming Language :: Python :: 3.2",
     "Programming Language :: Python :: 3.3",
@@ -33,7 +34,6 @@ def get_srcdir():
     filename = osp.normcase(osp.dirname(osp.abspath(__file__)))
     return osp.realpath(filename)
 
-
 def read(*rnames):
     return open(osp.join(get_srcdir(), *rnames)).read()
 
@@ -41,37 +41,18 @@ def read(*rnames):
 exec(read("columnize/version.py"))
 
 # The rest in alphabetic order
-author       = "Rocky Bernstein"
+author = "Rocky Bernstein"
 author_email = "rocky@gnu.org"
-ftp_url      = None
-license      = "PSF2"
-mailing_list = None
-modname      = "columnize"
+pkg_license = "MIT"
+modname = "columnize"
 
-short_desc = 'Format a simple (i.e. not nested) list into aligned columns.'
+short_desc = "Format a simple (i.e. not nested) list into aligned columns."
 py_modules = [modname]
+test_requires = ["pytest"]
+web = "https://github.com/rocky/pycolumnize"
 
-# VERSION.py sets variable VERSION.
-import os.path as osp
-version_file = osp.join(
-    osp.dirname(__file__),
-    "columnize",
-    "version.py")
-exec(
-    compile(
-        open(version_file, "r").read(),
-        version_file,
-        "exec",
-        )
-    )
-
-web = 'https://github.com/rocky/pycolumnize'
-# tracebacks in zip files are funky and not debuggable
-zip_safe = False
-
-def read(*rnames):
-    return open(osp.join(osp.dirname(__file__), *rnames)).read()
-
-readme = 'README.txt'
-if osp.exists('README.rst'): readme = 'README.rst'
-long_description   = ( read(readme) + '\n' )
+readme = "README.txt"
+if osp.exists("README.rst"):
+    readme = "README.rst"
+long_description = read(readme) + "\n"
+>>>>>>> python-3.3-to-3.5

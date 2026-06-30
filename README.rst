@@ -120,8 +120,7 @@ Authors: Rocky Bernstein rb@dustyfeet.com
 
 License: MIT
 
-.. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg
-   :target: https://pypi.python.org/pypi/columnize/
+.. |Supported Python Versions| image:: https://img.shields.io/pypi/pyversions/columnize.svg :target: https://pypi.python.org/pypi/columnize/
 .. |Pypi Installs| image:: https://pepy.tech/badge/columnize
-.. |packagestatus| image:: https://repology.org/badge/vertical-allrepos/python:columnize.svg
-                 :target: https://repology.org/project/python:columnize/versions
+.. |packagestatus| image:: https://repology.org/badge/vertical-allrepos/python:columnize.svg :target: https://repology.org/project/python:columnize/versions
+>>>>>>> python-3.3-to-3.5

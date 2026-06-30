@@ -9,7 +9,10 @@ import os
 try:
     from shutil import get_terminal_size
 except ImportError:
-    from backports.shutil_get_terminal_size import get_terminal_size
+    try:
+        from backports.shutil_get_terminal_size import get_terminal_size
+    except:  # noqa
+        pass
 
 DEFAULT_WIDTH = 80
 
@@ -44,7 +47,7 @@ default_opts = {
 }
 
 
-def get_option(key, options):
+def get_option(key: str, options: dict):
     return options.get(key, default_opts.get(key))
 
 
@@ -78,13 +81,12 @@ def columnize(
     if opts is None:
         opts = {}
     if not isinstance(array, (list, tuple)):
-        raise TypeError(("array needs to be an instance of a list or a tuple"))
+        raise TypeError("array needs to be an instance of a list or a tuple")
 
     o = {}
     if len(opts.keys()) > 0:
         for key in default_opts.keys():
             o[key] = get_option(key, opts)
-            pass
         if o["arrange_array"]:
             o["array_prefix"] = "["
             o["lineprefix"] = " "
@@ -92,7 +94,6 @@ def columnize(
             o["array_suffix"] = "]\n"
             o["colsep"] = ", "
             o["arrange_vertical"] = False
-            pass
 
     else:
         o = default_opts.copy()
@@ -101,20 +102,17 @@ def columnize(
         o["arrange_vertical"] = arrange_vertical
         o["ljust"] = ljust
         o["lineprefix"] = lineprefix
-        pass
 
     # if o['ljust'] is None:
     #     o['ljust'] = !(list.all?{|datum| datum.kind_of?(Numeric)})
-    #     pass
 
     if o["colfmt"]:
-        array = [(o["colfmt"] % i) for i in array]
+        formatted_array = [(o["colfmt"] % i) for i in array]
     else:
-        array = [str(i) for i in array]
-        pass
+        formatted_array = [str(i) for i in array]
 
     # Some degenerate cases
-    size = len(array)
+    size = len(formatted_array)
     if 0 == size:
         return "<empty>\n"
     elif size == 1:
@@ -122,7 +120,9 @@ def columnize(
 
     o["displaywidth"] = max(4, o["displaywidth"] - len(o["lineprefix"]))
     if o["arrange_vertical"]:
-        array_index = lambda nrows, row, col: nrows * col + row
+        def array_index(dim: int, row: int, col: int) -> int:
+            return dim * col + row
+
         # Try every row count from 1 upwards
         for nrows in range(1, size + 1):
             ncols = (size + nrows - 1) // nrows
@@ -135,17 +135,14 @@ def columnize(
                     i = array_index(nrows, row, col)
                     if i >= size:
                         break
-                    x = array[i]
+                    x = formatted_array[i]
                     colwidth = max(colwidth, len(x))
-                    pass
                 colwidths.append(colwidth)
                 totwidth += colwidth + len(o["colsep"])
                 if totwidth > o["displaywidth"]:
                     break
-                pass
             if totwidth <= o["displaywidth"]:
                 break
-            pass
         # The smallest number of rows computed and the
         # max widths for each column has been obtained.
         # Now we just have to format each of the
@@ -158,7 +155,7 @@ def columnize(
                 if i >= size:
                     x = ""
                 else:
-                    x = array[i]
+                    x = formatted_array[i]
                 texts.append(x)
             while texts and not texts[-1]:
                 del texts[-1]
@@ -167,19 +164,19 @@ def columnize(
                     texts[col] = texts[col].ljust(colwidths[col])
                 else:
                     texts[col] = texts[col].rjust(colwidths[col])
-                    pass
-                pass
             s += "%s%s%s" % (
                 o["lineprefix"],
                 str(o["colsep"].join(texts)),
                 o["linesuffix"],
             )
-            pass
         return s
     else:
-        array_index = lambda ncols, row, col: ncols * (row - 1) + col
+        def array_index(dim: int, row: int, col: int) -> int:
+            return dim * (row - 1) + col
+
         # Try every column count from size downwards
         colwidths = []
+        i = 0
         for ncols in range(size, 0, -1):
             # Try every row count from 1 upwards
             min_rows = (size + ncols - 1) // ncols
@@ -197,15 +194,12 @@ def columnize(
                         if i >= rounded_size:
                             break
                         elif i < size:
-                            x = array[i]
+                            x = formatted_array[i]
                             colwidth = max(colwidth, len(x))
-                            pass
-                        pass
                     colwidths.append(colwidth)
                     totwidth += colwidth + len(o["colsep"])
                     if totwidth >= o["displaywidth"]:
                         break
-                    pass
                 if totwidth <= o["displaywidth"] and i >= rounded_size - 1:
                     # Found the right nrows and ncols
                     # print "right nrows and ncols"
@@ -215,10 +209,8 @@ def columnize(
                     # print "reduce ncols", ncols
                     # Need to reduce ncols
                     break
-                pass
             if totwidth <= o["displaywidth"] and i >= rounded_size - 1:
                 break
-            pass
         # The smallest number of rows computed and the
         # max widths for each column has been obtained.
         # Now we just have to format each of the
@@ -228,7 +220,6 @@ def columnize(
             prefix = o["array_prefix"]
         else:
             prefix = o["lineprefix"]
-            pass
         for row in range(1, nrows + 1):
             texts = []
             for col in range(ncols):
@@ -236,29 +227,22 @@ def columnize(
                 if i >= size:
                     break
                 else:
-                    x = array[i]
+                    x = formatted_array[i]
                 texts.append(x)
-                pass
             for col in range(len(texts)):
                 if o["ljust"]:
                     texts[col] = texts[col].ljust(colwidths[col])
                 else:
                     texts[col] = texts[col].rjust(colwidths[col])
-                    pass
-                pass
             s += "%s%s%s" % (prefix, str(o["colsep"].join(texts)), o["linesuffix"])
             prefix = o["lineprefix"]
-            pass
         if o["arrange_array"]:
             colsep = o["colsep"].rstrip()
             colsep_pos = -(len(colsep) + 1)
             if s[colsep_pos:] == colsep + "\n":
                 s = s[:colsep_pos] + o["array_suffix"] + "\n"
-                pass
-            pass
         else:
             s += o["array_suffix"]
-            pass
         return s
     pass
 
@@ -267,7 +251,6 @@ def columnize(
 if __name__ == "__main__":
     # from trepan.api import debug
     # debug()
-    from typing import List, Tuple, Union
     print(columnize(list(range(12)), opts={"displaywidth": 6, "arrange_array": True}))
     print(columnize(list(range(12)), opts={"displaywidth": 10, "arrange_array": True}))
     for t in (
@@ -363,7 +346,7 @@ if __name__ == "__main__":
     import sys
 
     try:
-        print(columnize(5))
+        print(columnize(5))  # type: ignore[arg-type]
     except TypeError:
         err = sys.exc_info()[1]
         print(err)
