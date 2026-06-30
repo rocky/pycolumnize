@@ -5,7 +5,7 @@ distutils setup (setup.py)
 This gets a bit of package info from __pkginfo__.py file
 """
 # Get the required package information
-from setuptools import find_packages, setup
+from setuptools import find_packages, setup  # type: ignore[import-untyped]
 
 from __pkginfo__ import (
     __version__,
