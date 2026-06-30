@@ -8,4 +8,10 @@ if [[ $0 == $bs ]] ; then
     exit 1
 fi
 
-git checkout python-3.0-to-3.3  && git pull && pyenv local $PYTHON_VERSION
+export PATH=$HOME/.pyenv/bin/pyenv:$PATH
+pytracer_owd=$(pwd)
+mydir=$(dirname $bs)
+cd $mydir
+. ./checkout_common.sh
+
+checkout_finish python-3.0-to-3.3
